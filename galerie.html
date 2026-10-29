@@ -7,55 +7,204 @@
 <meta name="description" content="Visas obtenus, séminaires d'orientation et vie du centre La Chiave à Brazzaville et Pointe-Noire." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Geist:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/site.css" />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <link rel="icon" type="image/png" href="assets/favicon.png" />
+<style>
+  :root {
+    --cream: #FAF7F1;
+    --sage: #EEF2EC;
+    --green: #1F5C40;
+    --green-d: #17462F;
+    --red: #D32F2F;
+    --red-d: #B72424;
+    --ink: #22302A;
+    --muted: #5F6B65;
+    --line: #E6E1D7;
+    --serif: "Libre Baskerville", Georgia, serif;
+    --sans: "Nunito Sans", system-ui, sans-serif;
+    --script: Caveat, cursive;
+    --max: 1180px;
+    --ease: cubic-bezier(.2,.75,.2,1);
+    --shadow: 0 10px 30px -16px rgba(34,48,42,.35);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--sans); color: var(--ink); background: #fff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+  section { position: relative; }
+  h1, h2 { font-family: var(--serif); color: var(--green-d); font-weight: 400; }
+  .kicker { display: block; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--green); }
+  .btn { display: inline-flex; align-items: center; gap: 12px; padding: 15px 26px; border-radius: 999px; background: var(--red); color: #fff; font-weight: 700; font-size: 15px; transition: background .25s, transform .25s var(--ease); box-shadow: 0 8px 18px -10px rgba(211,47,47,.7); }
+  .btn:hover { background: var(--red-d); transform: translateY(-2px); }
+  .btn .ar { transition: transform .25s var(--ease); }
+  .btn:hover .ar { transform: translateX(4px); }
+
+  /* En-tête (identique à l'accueil) */
+  header { position: sticky; top: 0; z-index: 40; background: #fff; transition: box-shadow .3s; }
+  header.scrolled { box-shadow: 0 4px 20px -12px rgba(34,48,42,.35); }
+  .nav { height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand img { width: 58px; height: 58px; }
+  .brand b { display: block; font-family: var(--serif); font-size: 21px; font-weight: 400; color: var(--green-d); }
+  .brand small { display: block; margin-top: 3px; font-size: 9.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); }
+  .menu { display: flex; gap: 34px; font-size: 14.5px; }
+  .menu a { position: relative; padding: 10px 0; color: #34413B; }
+  .menu a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--green); transform: scaleX(0); transition: transform .3s var(--ease); }
+  .menu a:hover, .menu a.active { color: var(--green-d); font-weight: 700; }
+  .menu a:hover::after, .menu a.active::after { transform: scaleX(1); }
+  .nav .btn { padding: 13px 28px; }
+  .burger { display: none; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 12px; background: #fff; cursor: pointer; }
+  .burger span { display: block; width: 18px; height: 2px; background: var(--green-d); margin: 4px auto; border-radius: 2px; }
+  .mobile-menu { display: none; padding: 4px 28px 22px; border-top: 1px solid var(--line); }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a { display: block; padding: 14px 0; font-weight: 700; border-bottom: 1px solid var(--line); }
+
+  /* Bandeau : vraie photo du Colisée */
+  .banner { min-height: 340px; display: flex; align-items: center; overflow: hidden; background: #FBF6EE; }
+  .banner-bg { position: absolute; inset: 0 0 0 34%; background: url("assets/italie/colisee.jpg") 60% 55% / cover no-repeat; transform: scale(1.08); animation: zoomout 2.4s var(--ease) forwards; }
+  @keyframes zoomout { to { transform: scale(1); } }
+  .banner-glow { position: absolute; inset: 0; background: linear-gradient(90deg, #FBF6EE 0%, #FBF6EE 34%, rgba(251,246,238,.85) 44%, rgba(251,246,238,0) 60%); }
+  .banner .wrap { max-width: none; width: 100%; padding-left: max(28px, 6vw); }
+  .banner-inner { position: relative; max-width: 500px; padding: 56px 0; }
+  .banner h1 { font-size: clamp(32px, 3.4vw, 44px); line-height: 1.2; margin: 14px 0 16px; }
+  .banner p { font-size: 16px; line-height: 1.65; color: #2F3A35; }
+  .crumbs { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
+  .crumbs a { color: var(--green); font-weight: 700; }
+
+  /* Galerie */
+  .gallery { background: var(--sage); padding: 50px 0 80px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 36px; }
+  .filters button { font: inherit; font-size: 14px; font-weight: 700; padding: 11px 20px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--ink); cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+  .filters button:hover { border-color: var(--green); color: var(--green); }
+  .filters button[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: #fff; }
+  .masonry { columns: 4 240px; column-gap: 16px; }
+  .tile { break-inside: avoid; margin-bottom: 16px; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 10px -6px rgba(34,48,42,.35); cursor: zoom-in; opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease), box-shadow .3s; }
+  .tile.in { opacity: 1; transform: none; }
+  .tile:hover { box-shadow: var(--shadow); }
+  .tile:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+  .tile[hidden] { display: none; }
+  .tile .im { overflow: hidden; }
+  .tile img { width: 100%; transition: transform .7s var(--ease); }
+  .tile:hover img { transform: scale(1.05); }
+  .tile figcaption { padding: 12px 14px 14px; }
+  .tile figcaption b { display: block; font-size: 14px; }
+  .tile figcaption span { font-size: 12.5px; color: var(--muted); }
+  .count { text-align: center; margin-top: 20px; font-size: 13px; color: var(--muted); }
+
+  /* Visionneuse */
+  .lightbox { position: fixed; inset: 0; z-index: 90; background: rgba(23,70,47,.95); display: none; place-items: center; padding: 64px 72px; }
+  .lightbox.open { display: grid; }
+  .lightbox figure { display: grid; gap: 14px; justify-items: center; max-width: 100%; }
+  .lightbox img { max-width: 100%; max-height: calc(100vh - 170px); object-fit: contain; border-radius: 6px; animation: pop .35s var(--ease); }
+  @keyframes pop { from { opacity: 0; transform: scale(.96); } }
+  .lightbox figcaption { color: #fff; font-size: 15px; text-align: center; }
+  .lightbox figcaption span { opacity: .7; }
+  .lb { position: absolute; width: 46px; height: 46px; border-radius: 50%; border: 0; background: #fff; color: var(--green-d); font-size: 20px; cursor: pointer; box-shadow: var(--shadow); transition: background .2s, color .2s; }
+  .lb:hover { background: var(--red); color: #fff; }
+  .lb-close { top: 18px; right: 18px; }
+  .lb-prev { left: 18px; top: 50%; }
+  .lb-next { right: 18px; top: 50%; }
+
+  /* Appel final : vraie photo de Manarola */
+  .final { position: relative; overflow: hidden; color: #fff; }
+  .final-bg { position: absolute; inset: 0; background: url("assets/italie/manarola.jpg") 40% 55% / cover no-repeat; }
+  .final-veil { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,64,44,.96) 0%, rgba(20,64,44,.86) 34%, rgba(20,64,44,.25) 62%, rgba(20,64,44,0) 80%); }
+  .final-inner { position: relative; padding: 42px 0 48px; }
+  .final .bar { display: flex; width: 54px; height: 4px; margin-bottom: 18px; }
+  .final .bar i { flex: 1; } .final .bar i:nth-child(1) { background: #2E9B4F; } .final .bar i:nth-child(2) { background: #fff; } .final .bar i:nth-child(3) { background: var(--red); }
+  .final h2 { color: #fff; font-size: clamp(26px, 3vw, 34px); }
+  .final p { margin: 10px 0 26px; font-size: 15px; color: rgba(255,255,255,.9); }
+  .final .script { position: absolute; right: 2%; top: 50%; transform: translateY(-50%) rotate(-8deg); font-family: var(--script); font-size: 34px; line-height: 1.15; text-align: center; text-shadow: 0 2px 10px rgba(0,0,0,.45); }
+
+  /* Pied de page */
+  footer { background: var(--green-d); color: rgba(255,255,255,.85); padding: 34px 0 26px; }
+  .foot { display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
+  footer .brand b { color: #fff; font-size: 22px; }
+  footer .brand small { color: rgba(255,255,255,.65); }
+  .foot-nav { display: flex; font-size: 14.5px; }
+  .foot-nav a { padding: 0 16px; border-left: 1px solid rgba(255,255,255,.3); }
+  .foot-nav a:first-child { border-left: 0; }
+  .foot-nav a:hover { color: #fff; }
+  .foot-contact { display: flex; gap: 22px; font-size: 13.5px; flex-wrap: wrap; }
+  .foot-contact small { display: block; opacity: .6; font-size: 11.5px; }
+  .legal { margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14); display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; font-size: 12px; opacity: .65; }
+  .legal a { text-decoration: underline; }
+
+  .up { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: var(--d, 0s); }
+  .up.in { opacity: 1; transform: none; }
+
+  @media (max-width: 1040px) {
+    .menu, .nav > .btn { display: none; }
+    .burger { display: block; }
+    .final .script { display: none; }
+    .banner { min-height: 0; align-items: flex-start; }
+    .banner-bg { inset: auto 0 0 0; height: 220px; background-position: 50% 40%; }
+    .banner-glow { background: linear-gradient(180deg, #FBF6EE 0%, #FBF6EE calc(100% - 220px), rgba(251,246,238,0) calc(100% - 140px)); }
+    .banner-inner { padding: 40px 0 200px; }
+  }
+  @media (max-width: 620px) {
+    .wrap { padding: 0 18px; }
+    .brand img { width: 48px; height: 48px; }
+    .brand small { display: none; }
+    .masonry { columns: 2 140px; column-gap: 10px; }
+    .tile { margin-bottom: 10px; }
+    .lightbox { padding: 70px 12px; }
+    .lb-prev, .lb-next { top: auto; bottom: 18px; }
+    .final-veil { background: linear-gradient(180deg, rgba(20,64,44,.95) 0%, rgba(20,64,44,.8) 60%, rgba(20,64,44,.5) 100%); }
+    .foot-nav { flex-wrap: wrap; row-gap: 10px; }
+    .foot-nav a { padding: 0 12px 0 0; border-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .banner-bg { transform: none; }
+    .up, .tile { opacity: 1 !important; transform: none !important; }
+  }
+</style>
 </head>
 <body>
 
-<header>
+<header id="hdr">
   <div class="wrap nav">
     <a href="index.html" class="brand">
-      <img class="logo" src="assets/logo.png" alt="Logo Centro Linguistico La Chiave" />
-      <span>La Chiave</span>
+      <img src="assets/logo.png" alt="Logo Centro Linguistico La Chiave" />
+      <span><b>La Chiave</b><small>Apprendre · Préparer · Réussir</small></span>
     </a>
-    <nav class="menu upper">
-      <a href="index.html#approche">Le centre</a><span class="dot">·</span>
-      <a href="index.html#preparation">Préparation</a><span class="dot">·</span>
-      <a href="index.html#entretien">Entretien IA</a><span class="dot">·</span>
-      <a href="index.html#etapes">Étapes</a><span class="dot">·</span>
-      <a href="galerie.html" aria-current="page" style="color:var(--mint)">Galerie</a><span class="dot">·</span>
-      <a href="index.html#faq">FAQ</a>
+    <nav class="menu">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#formations">Nos formations</a>
+      <a href="index.html#centre">Notre centre</a>
+      <a href="index.html#reussites">Réussites</a>
+      <a href="galerie.html" class="active" aria-current="page">Galerie</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <div style="display:flex;gap:8px;align-items:center">
-      <a href="index.html#contact" class="btn-outline">Nous contacter</a>
-      <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
+    <a href="#contact" class="btn">S’inscrire</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html#approche">Le centre</a>
-    <a href="index.html#preparation">Préparation</a>
-    <a href="index.html#entretien">Entretien IA</a>
-    <a href="index.html#etapes">Étapes</a>
-    <a href="galerie.html">Galerie</a>
-    <a href="index.html#faq">FAQ</a>
+    <a href="index.html">Accueil</a>
+    <a href="index.html#formations">Nos formations</a>
+    <a href="index.html#centre">Notre centre</a>
+    <a href="index.html#reussites">Réussites</a>
+    <a href="#contact">Contact</a>
   </div>
 </header>
 
 <main>
-  <section class="g-hero dark">
-    <div class="emblems" data-emblems aria-hidden="true"></div>
-    <div class="pixels" id="heroPixels" aria-hidden="true"></div>
+  <section class="banner">
+    <div class="banner-bg" role="img" aria-label="Le Colisée de Rome à la tombée de la nuit"></div>
+    <div class="banner-glow" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="badge" style="position:relative"><span class="br">[</span><span class="tx upper" style="color:var(--ink)">Galerie</span><span class="br">]</span></div>
-      <h1 data-wipe="load">La Chiave<br />en images</h1>
-      <p class="rv">Visas obtenus, départs vers l’Italie, séminaires d’orientation et vie du centre : quelques moments partagés avec nos étudiants.</p>
+      <div class="banner-inner">
+        <p class="crumbs up"><a href="index.html">Accueil</a> · Galerie</p>
+        <span class="kicker up">Galerie</span>
+        <h1 class="up" style="--d:.1s">La Chiave en images</h1>
+        <p class="up" style="--d:.2s">Visas obtenus, départs vers l’Italie, séminaires d’orientation et vie du centre : quelques moments partagés avec nos étudiants.</p>
+      </div>
     </div>
   </section>
 
-  <section class="g-body">
-    <!-- Monuments d'Italie fixés en arrière-plan de la galerie -->
-    <div class="emblems emblems-fixed" data-emblems aria-hidden="true"></div>
+  <section class="gallery">
     <div class="wrap">
       <div class="filters" role="group" aria-label="Filtrer les photos">
         <button type="button" data-filter="tout" aria-pressed="true">Tout</button>
@@ -64,68 +213,50 @@
         <button type="button" data-filter="centre" aria-pressed="false">Le centre</button>
       </div>
       <div class="masonry" id="masonry"></div>
+      <p class="count" id="count" aria-live="polite"></p>
     </div>
   </section>
 
-  <section class="final">
-    <div class="final-box">
-      <div class="emblems emblems-ink" data-emblems aria-hidden="true"></div>
-      <div class="pixels" id="ctaPixels" aria-hidden="true"></div>
-      <h2 data-wipe>Et si la prochaine photo était la vôtre ?</h2>
-      <p class="rv">Évaluez votre niveau, découvrez les prochaines étapes et échangez avec notre centre pour mieux préparer votre parcours vers l’Italie.</p>
-      <div class="cta-row rv">
-        <a href="https://wa.me/242069541740" target="_blank" rel="noopener" class="btn btn-ink"><span>Contacter sur WhatsApp</span><span class="arr">↗</span></a>
-      </div>
+  <section class="final" id="contact">
+    <div class="final-bg" role="img" aria-label="Le village de Manarola, Cinque Terre, Italie"></div>
+    <div class="final-veil" aria-hidden="true"></div>
+    <div class="wrap final-inner">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
+      <h2 class="up">Et si la prochaine photo était la vôtre ?</h2>
+      <p class="up" style="--d:.08s">Rejoignez La Chiave et commencez votre projet italien dès aujourd’hui.</p>
+      <a href="https://wa.me/242069541740" target="_blank" rel="noopener" class="btn up" style="--d:.16s">S’inscrire maintenant <span class="ar">→</span></a>
+      <p class="script" aria-hidden="true">Votre avenir<br />commence par<br />une nouvelle langue !</p>
     </div>
   </section>
 </main>
 
-<footer class="dark">
+<footer>
   <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <span class="foot-lbl">{EMAIL}</span>
-        <a class="foot-big" href="mailto:contact@lachiave.it">contact@lachiave.it</a>
-        <span class="foot-lbl">{TÉLÉPHONE}</span>
-        <a class="foot-big foot-tel" href="tel:+242068002729"><small>Brazzaville</small>+242 06 800 27 29</a>
-        <a class="foot-big foot-tel" href="tel:+242061604154"><small>Pointe-Noire</small>+242 06 160 41 54</a>
-        <span class="foot-lbl">{WHATSAPP}</span>
-        <a class="foot-big" href="https://wa.me/242069541740" target="_blank" rel="noopener">+242 06 954 17 40</a>
-      </div>
-      <div>
-        <span class="foot-lbl">{NAVIGATION}</span>
-        <ul><li><a href="index.html#approche">Le centre</a></li><li><a href="index.html#preparation">Préparation</a></li><li><a href="index.html#entretien">Entretien IA</a></li><li><a href="index.html#etapes">Étapes</a></li><li><a href="galerie.html">Galerie</a></li><li><a href="index.html#faq">FAQ</a></li></ul>
-      </div>
-      <div>
-        <span class="foot-lbl">{CENTRE}</span>
-        <ul><li>Brazzaville &amp; Pointe-Noire</li><li>République du Congo</li><li>Lundi – Samedi · 8h – 18h</li><li>Présentiel &amp; en ligne</li></ul>
-      </div>
-      <div>
-        <span class="foot-lbl">{SUIVEZ-NOUS}</span>
-        <ul><li><a href="https://wa.me/242069541740" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:contact@lachiave.it">Email</a></li></ul>
+    <div class="foot">
+      <a href="index.html" class="brand"><img src="assets/logo.png" alt="" /><span><b>La Chiave</b><small>Centro Linguistico</small></span></a>
+      <nav class="foot-nav"><a href="index.html#formations">Nos formations</a><a href="index.html#centre">Notre centre</a><a href="index.html#reussites">Réussites</a><a href="galerie.html">Galerie</a><a href="#contact">Contact</a></nav>
+      <div class="foot-contact">
+        <div><small>Brazzaville</small><a href="tel:+242068002729">+242 06 800 27 29</a></div>
+        <div><small>Pointe-Noire</small><a href="tel:+242061604154">+242 06 160 41 54</a></div>
+        <div><small>WhatsApp</small><a href="https://wa.me/242069541740" target="_blank" rel="noopener">+242 06 954 17 40</a></div>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>© 2026 La Chiave. Tous droits réservés.</span>
-      <span>Entraînement pédagogique indépendant · Non affilié officiellement aux services consulaires</span>
+    <div class="legal">
+      <span>© 2026 La Chiave · Préparation pédagogique indépendante, non affiliée aux services consulaires.</span>
+      <span>Photos : Colisée — Diliff (<a href="https://creativecommons.org/licenses/by-sa/2.5/deed.fr" target="_blank" rel="noopener">CC BY-SA 2.5</a>) · Manarola — Timothy A. Gonsalves (<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>), via Wikimedia Commons</span>
     </div>
   </div>
-  <div class="giant" aria-hidden="true">La Chiave</div>
-  <div class="pixels foot-pixels" id="footPixels" aria-hidden="true"></div>
 </footer>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie">
-  <button class="lb-btn lb-close" aria-label="Fermer">✕</button>
-  <button class="lb-btn lb-prev" aria-label="Photo précédente">←</button>
+  <button class="lb lb-close" aria-label="Fermer">✕</button>
+  <button class="lb lb-prev" aria-label="Photo précédente">←</button>
   <figure><img alt="" /><figcaption></figcaption></figure>
-  <button class="lb-btn lb-next" aria-label="Photo suivante">→</button>
+  <button class="lb lb-next" aria-label="Photo suivante">→</button>
 </div>
 
-<script src="assets/site.js"></script>
 <script>
-  const { scatter, splitLines } = LaChiave;
-  LaChiave.renderEmblems();
-  LaChiave.initMenu();
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Photos du centre : [fichier, légende, détail, catégorie].
   const SEMINAIRE = 'Pointe-Noire · 7 février 2026';
@@ -147,14 +278,16 @@
     ['visa-07.jpg', 'Visa d’études obtenu', 'Brazzaville', 'visas'],
     ['visa-08.jpg', 'Visa d’études obtenu', 'Brazzaville', 'visas'],
   ];
-  const BG = ['var(--sky)', 'var(--mint)', 'var(--sand)', 'var(--lilac)', 'var(--white)'];
-  const masonry = document.getElementById('masonry');
+  const masonry = document.getElementById('masonry'), count = document.getElementById('count');
   masonry.innerHTML = PHOTOS.map(([f, c, d, cat], i) =>
-    `<figure class="tile-g" data-cat="${cat}" data-i="${i}" tabindex="0" role="button" aria-label="Agrandir : ${c}" style="background:${BG[i % BG.length]}">
+    `<figure class="tile" data-cat="${cat}" data-i="${i}" tabindex="0" role="button" aria-label="Agrandir : ${c}">
        <div class="im"><img src="assets/galerie/${f}" alt="${c} — ${d}" loading="lazy" /></div>
-       <figcaption><span>${c}</span><small>${d}</small></figcaption>
+       <figcaption><b>${c}</b><span>${d}</span></figcaption>
      </figure>`).join('');
   const tiles = [...masonry.children];
+  const visible = () => tiles.filter(t => !t.hidden);
+  const updateCount = () => { const n = visible().length; count.textContent = `${n} photo${n > 1 ? 's' : ''}`; };
+  updateCount();
 
   // Filtres par catégorie.
   document.querySelectorAll('.filters button').forEach(btn => btn.onclick = () => {
@@ -162,19 +295,19 @@
     const f = btn.dataset.filter;
     tiles.forEach(t => {
       t.hidden = f !== 'tout' && t.dataset.cat !== f;
-      if (!t.hidden) { t.classList.remove('on'); requestAnimationFrame(() => t.classList.add('on')); }
+      if (!t.hidden && !reduced) { t.classList.remove('in'); requestAnimationFrame(() => requestAnimationFrame(() => t.classList.add('in'))); }
     });
+    updateCount();
   });
 
   // Visionneuse : clic ou Entrée sur une photo, flèches du clavier, Échap pour fermer.
   const lb = document.getElementById('lightbox'), lbImg = lb.querySelector('img'), lbCap = lb.querySelector('figcaption');
   let cur = 0;
-  const visible = () => tiles.filter(t => !t.hidden);
   function show(i) {
     cur = i;
     const [f, c, d] = PHOTOS[i];
     lbImg.src = `assets/galerie/${f}`; lbImg.alt = `${c} — ${d}`;
-    lbCap.textContent = `${c} · ${d}`;
+    lbCap.innerHTML = `${c} <span>· ${d}</span>`;
     lbImg.style.animation = 'none'; lbImg.offsetWidth; lbImg.style.animation = '';
   }
   function step(d) {
@@ -198,30 +331,21 @@
     if (e.key === 'ArrowRight') step(1);
   });
 
-  // Pavés pixel.
-  function layoutPixels() {
-    const wide = innerWidth > 960;
-    scatter(document.getElementById('heroPixels'), wide ? ['top', 'bottom', 'side', 'side'] : ['top', 'bottom'], wide ? 26 : 12);
-    scatter(document.getElementById('footPixels'), ['bottom'], wide ? 18 : 8);
-    scatter(document.getElementById('ctaPixels'), ['top', 'bottom'], wide ? 26 : 12);
-    document.querySelectorAll('#ctaPixels i').forEach(i => i.style.background = '#0E1E1D');
-  }
-  layoutPixels();
-  LaChiave.animatePixels(['heroPixels', 'footPixels']);
-
-  // Titres dévoilés par bandes ; le titre principal se dévoile au chargement.
-  const wipes = [...document.querySelectorAll('[data-wipe]')];
-  wipes.forEach(splitLines);
-  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { layoutPixels(); wipes.forEach(splitLines); }, 200); });
-  setTimeout(() => document.querySelector('[data-wipe="load"]').classList.add('on'), 150);
-
-  // Apparitions au défilement (photos en cascade).
+  // Apparitions au défilement.
   const io = new IntersectionObserver(entries => entries.forEach(e => {
     if (!e.isIntersecting) return;
-    e.target.classList.add('on');
+    e.target.classList.add('in');
     io.unobserve(e.target);
-  }), { threshold: .12 });
-  document.querySelectorAll('.rv, .tile-g, [data-wipe]:not([data-wipe="load"])').forEach(el => io.observe(el));
+  }), { threshold: .1 });
+  document.querySelectorAll('.up, .tile').forEach(el => io.observe(el));
+  if (reduced) document.querySelectorAll('.up, .tile').forEach(el => el.classList.add('in'));
+
+  // En-tête et menu mobile.
+  const hdr = document.getElementById('hdr');
+  addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 8), { passive: true });
+  const burger = document.querySelector('.burger'), mm = document.getElementById('mobileMenu');
+  burger.onclick = () => { const o = mm.classList.toggle('open'); burger.setAttribute('aria-expanded', o); };
+  mm.querySelectorAll('a').forEach(a => a.onclick = () => { mm.classList.remove('open'); burger.setAttribute('aria-expanded', false); });
 </script>
 </body>
 </html>

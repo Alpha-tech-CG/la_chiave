@@ -3,655 +3,377 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>La Chiave — Centre de langue italienne · Brazzaville</title>
-<meta name="description" content="Depuis Brazzaville, La Chiave accompagne les étudiants dans leur apprentissage de l'italien et la construction de leur projet d'études en Italie." />
+<title>La Chiave — Centre de langue italienne · Brazzaville & Pointe-Noire</title>
+<meta name="description" content="La Chiave accompagne les étudiants du Congo dans l'apprentissage de l'italien et la préparation de leur projet d'études en Italie." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Geist:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/site.css" />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <link rel="icon" type="image/png" href="assets/favicon.png" />
-</head>
-<body class="loading">
-<div id="loader" aria-hidden="true"><span class="name"><img src="assets/logo.png" alt="" />La Chiave</span></div>
+<link rel="preload" as="image" href="assets/italie/saint-pierre.jpg" />
+<style>
+  :root {
+    --cream: #FAF7F1;
+    --sage: #EEF2EC;
+    --white: #FFFFFF;
+    --green: #1F5C40;
+    --green-d: #17462F;
+    --green-l: #2E8B57;
+    --red: #D32F2F;
+    --red-d: #B72424;
+    --ink: #22302A;
+    --muted: #5F6B65;
+    --line: #E6E1D7;
+    --serif: "Libre Baskerville", Georgia, serif;
+    --sans: "Nunito Sans", system-ui, sans-serif;
+    --script: Caveat, cursive;
+    --max: 1180px;
+    --ease: cubic-bezier(.2,.75,.2,1);
+    --shadow: 0 10px 30px -16px rgba(34,48,42,.35);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); color: var(--ink); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+  section { position: relative; }
+  h1, h2, h3 { font-family: var(--serif); color: var(--green-d); font-weight: 400; }
+  .kicker { display: block; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--green); }
+  .h2 { font-size: clamp(25px, 2.3vw, 31px); line-height: 1.3; margin-top: 12px; }
+  .lead { font-size: 16px; line-height: 1.65; color: #3E4A44; }
 
-<header>
+  .btn { display: inline-flex; align-items: center; gap: 12px; padding: 15px 26px; border-radius: 999px; background: var(--red); color: #fff; font-weight: 700; font-size: 15px; transition: background .25s, transform .25s var(--ease), box-shadow .25s; box-shadow: 0 8px 18px -10px rgba(211,47,47,.7); }
+  .btn:hover { background: var(--red-d); transform: translateY(-2px); }
+  .btn .ar { transition: transform .25s var(--ease); }
+  .btn:hover .ar { transform: translateX(4px); }
+  .btn.green { background: var(--green); box-shadow: 0 8px 18px -10px rgba(31,92,64,.7); }
+  .btn.green:hover { background: var(--green-d); }
+  .more { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13.5px; color: var(--green); }
+  .more .ar { transition: transform .25s var(--ease); }
+  .more:hover .ar { transform: translateX(4px); }
+
+  /* En-tête */
+  header { position: sticky; top: 0; z-index: 40; background: #fff; transition: box-shadow .3s; }
+  header.scrolled { box-shadow: 0 4px 20px -12px rgba(34,48,42,.35); }
+  .nav { height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand img { width: 58px; height: 58px; }
+  .brand b { display: block; font-family: var(--serif); font-size: 21px; font-weight: 400; color: var(--green-d); }
+  .brand small { display: block; margin-top: 3px; font-size: 9.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); }
+  .menu { display: flex; gap: 34px; font-size: 14.5px; }
+  .menu a { position: relative; padding: 10px 0; color: #34413B; transition: color .2s; }
+  .menu a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--green); transform: scaleX(0); transition: transform .3s var(--ease); }
+  .menu a:hover, .menu a.active { color: var(--green-d); font-weight: 700; }
+  .menu a:hover::after, .menu a.active::after { transform: scaleX(1); }
+  .nav .btn { padding: 13px 28px; }
+  .burger { display: none; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 12px; background: #fff; cursor: pointer; }
+  .burger span { display: block; width: 18px; height: 2px; background: var(--green-d); margin: 4px auto; border-radius: 2px; }
+  .mobile-menu { display: none; padding: 4px 28px 22px; border-top: 1px solid var(--line); }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a { display: block; padding: 14px 0; font-weight: 700; border-bottom: 1px solid var(--line); }
+
+  /* Hero : vraie photo de Saint-Pierre et du pont Sant'Angelo */
+  .hero { min-height: 470px; overflow: hidden; display: flex; align-items: center; background: #FBF6EE; }
+  .hero-bg { position: absolute; inset: 0 0 0 30%; background: url("assets/italie/saint-pierre.jpg") 70% 60% / cover no-repeat; filter: saturate(1.08) sepia(.22) brightness(1.04); transform: scale(1.08); animation: zoomout 2.4s var(--ease) forwards; }
+  @keyframes zoomout { to { transform: scale(1); } }
+  /* Voile chaud : coucher de soleil sur le ciel, fondu crème à gauche pour le texte. */
+  .hero-glow { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,196,120,.38) 0%, rgba(255,214,160,.18) 40%, rgba(0,0,0,0) 70%), linear-gradient(90deg, #FBF6EE 0%, #FBF6EE 32%, rgba(251,246,238,.85) 42%, rgba(251,246,238,0) 58%); }
+  .hero > .wrap { max-width: none; width: 100%; padding-left: max(28px, 6vw); }
+  .hero-inner { position: relative; padding: 64px 0 70px; max-width: 520px; }
+  .hero h1 { font-size: clamp(32px, 3.4vw, 44px); line-height: 1.2; margin: 18px 0 22px; letter-spacing: -.005em; }
+  .hero .lead { font-size: 16.5px; color: #2F3A35; max-width: 470px; }
+  .hero .btn { margin-top: 30px; }
+  .hero-note { position: absolute; right: 3%; bottom: 40px; font-family: var(--script); font-size: 38px; line-height: 1; color: #fff; text-align: center; transform: rotate(-6deg); text-shadow: 0 2px 12px rgba(0,0,0,.45); opacity: 0; animation: fadein 1s 1.4s forwards; }
+  .hero-note small { display: block; font-size: 22px; }
+  @keyframes fadein { to { opacity: 1; } }
+
+  /* Atouts */
+  .perks { background: var(--cream); }
+  .perks-grid { display: grid; grid-template-columns: repeat(4, 1fr); padding: 40px 0 44px; }
+  .perk { text-align: center; padding: 0 22px; }
+  .perk .ic { height: 44px; margin-bottom: 16px; display: flex; justify-content: center; }
+  .perk .ic svg { height: 44px; width: 44px; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .perk .flag { display: flex; width: 36px; height: 34px; border-radius: 4px; overflow: hidden; margin-top: 4px; }
+  .perk .flag i { flex: 1; } .perk .flag i:nth-child(1) { background: #2E9B4F; } .perk .flag i:nth-child(2) { background: #fff; border-block: 1px solid #eee; } .perk .flag i:nth-child(3) { background: var(--red); }
+  .perk h3 { font-family: var(--sans); font-size: 15.5px; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
+  .perk p { font-size: 13.5px; line-height: 1.6; color: var(--muted); }
+
+  /* Formations */
+  .courses { background: var(--sage); padding: 60px 0; }
+  .courses-grid { display: grid; grid-template-columns: 340px 1fr; gap: 48px; align-items: center; }
+  .courses .lead { margin: 18px 0 28px; font-size: 15px; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .card { background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 10px -6px rgba(34,48,42,.35); display: flex; flex-direction: column; transition: transform .35s var(--ease), box-shadow .35s; }
+  .card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .card .im { height: 112px; overflow: hidden; }
+  .card .im img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
+  .card:hover .im img { transform: scale(1.07); }
+  .card .bd { padding: 14px 14px 16px; display: flex; flex-direction: column; flex: 1; }
+  .card h3 { font-family: var(--sans); font-size: 14.5px; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
+  .card p { font-size: 12.5px; line-height: 1.55; color: var(--muted); flex: 1; }
+  .card .more { margin-top: 14px; font-size: 12.5px; }
+
+  /* Pourquoi nous */
+  .why { padding: 24px 0 0; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
+  .why-photo { position: relative; height: 330px; overflow: hidden; }
+  .why-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .why-photo .tag { position: absolute; right: 14px; top: 14px; background: rgba(23,70,47,.9); color: #fff; font-family: var(--script); font-size: 26px; line-height: 1.05; padding: 10px 14px 12px; border-radius: 4px; transform: rotate(3deg); }
+  .feats { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 30px; margin-top: 30px; }
+  .feat { display: flex; gap: 16px; }
+  .feat .ic { flex: 0 0 34px; color: var(--green); }
+  .feat .ic svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .feat b { display: block; font-size: 14px; margin-bottom: 6px; }
+  .feat p { font-size: 13px; line-height: 1.55; color: var(--muted); }
+
+  /* Réussites (à la place des témoignages : photos réelles, sans citations inventées) */
+  .trust { background: var(--cream); margin-top: 24px; padding: 36px 0 40px; }
+  .trust-grid { display: grid; grid-template-columns: 270px 1fr; gap: 28px; align-items: center; }
+  .trust .h2 { margin: 12px 0 18px; }
+  .wins { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .win { background: #fff; border-radius: 4px; padding: 18px 20px 20px; box-shadow: 0 2px 10px -6px rgba(34,48,42,.3); transition: transform .35s var(--ease); }
+  .win:hover { transform: translateY(-4px); }
+  .win .av { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; margin-bottom: 14px; }
+  .win .av img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 70% 20%); transform: scale(2.2); transform-origin: var(--pos, 70% 20%); }
+  .win p { font-size: 13px; line-height: 1.6; color: #45514B; min-height: 62px; }
+  .win b { display: block; margin-top: 16px; font-size: 13px; }
+  .win span { font-size: 12px; color: var(--muted); }
+
+  /* Appel final : vraie photo de Manarola (Cinque Terre) */
+  .final { position: relative; overflow: hidden; color: #fff; }
+  .final-bg { position: absolute; inset: 0; background: url("assets/italie/manarola.jpg") 40% 55% / cover no-repeat; transform: scale(1.06); transition: transform 6s linear; }
+  .final.in .final-bg { transform: scale(1); }
+  .final-veil { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,64,44,.96) 0%, rgba(20,64,44,.86) 34%, rgba(20,64,44,.25) 62%, rgba(20,64,44,0) 80%); }
+  .final-inner { position: relative; padding: 42px 0 48px; min-height: 200px; }
+  .final .bar { display: flex; width: 54px; height: 4px; margin-bottom: 18px; }
+  .final .bar i { flex: 1; } .final .bar i:nth-child(1) { background: #2E9B4F; } .final .bar i:nth-child(2) { background: #fff; } .final .bar i:nth-child(3) { background: var(--red); }
+  .final h2 { color: #fff; font-size: clamp(26px, 3vw, 34px); }
+  .final p { margin: 10px 0 26px; font-size: 15px; color: rgba(255,255,255,.9); }
+  .final .script { position: absolute; right: 2%; top: 50%; transform: translateY(-50%) rotate(-8deg); font-family: var(--script); font-size: 34px; line-height: 1.15; text-align: center; text-shadow: 0 2px 10px rgba(0,0,0,.45); }
+  .final .script svg { display: block; margin: 4px auto 0; }
+
+  /* Pied de page */
+  footer { background: var(--green-d); color: rgba(255,255,255,.85); padding: 34px 0 26px; }
+  .foot { display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; }
+  footer .brand b { color: #fff; font-size: 22px; }
+  footer .brand small { color: rgba(255,255,255,.65); }
+  .foot-nav { display: flex; gap: 0; font-size: 14.5px; }
+  .foot-nav a { padding: 0 16px; border-left: 1px solid rgba(255,255,255,.3); }
+  .foot-nav a:first-child { border-left: 0; }
+  .foot-nav a:hover { color: #fff; }
+  .foot-contact { display: flex; gap: 22px; font-size: 13.5px; flex-wrap: wrap; }
+  .foot-contact small { display: block; opacity: .6; font-size: 11.5px; }
+  .foot-contact a:hover { color: #fff; }
+  .legal { margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14); display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; font-size: 12px; opacity: .65; }
+  .legal a { text-decoration: underline; }
+
+  /* Apparitions */
+  .up { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: var(--d, 0s); }
+  .up.in { opacity: 1; transform: none; }
+
+  @media (max-width: 1040px) {
+    .menu, .nav > .btn { display: none; }
+    .burger { display: block; }
+    .courses-grid, .why-grid, .trust-grid { grid-template-columns: 1fr; }
+    .cards { grid-template-columns: 1fr 1fr; }
+    .perks-grid { grid-template-columns: 1fr 1fr; gap: 34px 0; }
+    .hero-note { display: none; }
+    .final .script { display: none; }
+    /* Écrans moyens et petits : la photo passe sous le texte pour ne jamais le gêner. */
+    .hero { min-height: 560px; align-items: flex-start; }
+    .hero-bg { inset: auto 0 0 0; height: 320px; background-position: 74% 28%; }
+    .hero-glow { background: linear-gradient(180deg, #FBF6EE 0%, #FBF6EE calc(100% - 320px), rgba(251,246,238,0) calc(100% - 210px)); }
+    .hero-inner { padding: 48px 0 270px; }
+  }
+  @media (max-width: 620px) {
+    .wrap { padding: 0 18px; }
+    .brand img { width: 48px; height: 48px; }
+    .brand small { display: none; }
+    .hero-bg { height: 300px; }
+    .hero-glow { background: linear-gradient(180deg, #FBF6EE 0%, #FBF6EE calc(100% - 300px), rgba(251,246,238,0) calc(100% - 200px)); }
+    .hero-inner { padding: 40px 0 230px; }
+    .perks-grid, .cards, .feats, .wins { grid-template-columns: 1fr; }
+    .why-photo { height: 260px; }
+    .final-veil { background: linear-gradient(180deg, rgba(20,64,44,.95) 0%, rgba(20,64,44,.8) 60%, rgba(20,64,44,.5) 100%); }
+    .foot-nav { flex-wrap: wrap; row-gap: 10px; }
+    .foot-nav a { padding: 0 12px 0 0; border-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .hero-bg { transform: none; } .hero-note { opacity: 1; }
+    .up { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header id="hdr">
   <div class="wrap nav">
     <a href="#top" class="brand">
-      <img class="logo" src="assets/logo.png" alt="Logo Centro Linguistico La Chiave" />
-      <span>La Chiave</span>
+      <img src="assets/logo.png" alt="Logo Centro Linguistico La Chiave" />
+      <span><b>La Chiave</b><small>Apprendre · Préparer · Réussir</small></span>
     </a>
-    <nav class="menu upper">
-      <a href="#approche">Le centre</a><span class="dot">·</span>
-      <a href="#preparation">Préparation</a><span class="dot">·</span>
-      <a href="#entretien">Entretien IA</a><span class="dot">·</span>
-      <a href="#etapes">Étapes</a><span class="dot">·</span>
-      <a href="galerie.html">Galerie</a><span class="dot">·</span>
-      <a href="#faq">FAQ</a>
+    <nav class="menu">
+      <a href="#top" class="active">Accueil</a>
+      <a href="#formations">Nos formations</a>
+      <a href="#centre">Notre centre</a>
+      <a href="#reussites">Réussites</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <div style="display:flex;gap:8px;align-items:center">
-      <a href="#contact" class="btn-outline">Nous contacter</a>
-      <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
+    <a href="#contact" class="btn">S’inscrire</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#approche">Le centre</a>
-    <a href="#preparation">Préparation</a>
-    <a href="#entretien">Entretien IA</a>
-    <a href="#etapes">Étapes</a>
+    <a href="#formations">Nos formations</a>
+    <a href="#centre">Notre centre</a>
+    <a href="#reussites">Réussites</a>
     <a href="galerie.html">Galerie</a>
-    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
   </div>
 </header>
 
 <main id="top">
-
   <!-- HERO -->
-  <section class="hero dark">
-    <div class="emblems" data-emblems aria-hidden="true"></div>
-    <div class="pixels" id="heroPixels" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <h1 data-wipe="load">Votre avenir en Italie<br />commence par une bonne préparation</h1>
-      <p class="lead rv">Depuis Brazzaville, La Chiave accompagne les étudiants et les apprenants dans leur apprentissage de l’italien et dans la construction de leur projet d’études en Italie.</p>
-      <div class="cta-row rv">
-        <a href="#contact" class="btn btn-white"><span>Évaluer mon niveau</span><span class="arr"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11L11 3M5 3h6v6"/></svg></span></a>
-        <a href="#approche" class="btn btn-panel"><span>Découvrir le centre</span><span class="arr"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11L11 3M5 3h6v6"/></svg></span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- APPROCHE -->
-  <section class="approach light" id="approche">
+  <section class="hero">
+    <div class="hero-bg" role="img" aria-label="La basilique Saint-Pierre et le pont Sant'Angelo sur le Tibre, à Rome"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="badge"><span class="br">[</span><span class="tx upper">Notre approche</span><span class="br">]</span></div>
-      <p class="reveal-text" data-wipe="scroll">La Chiave aide chaque apprenant à préparer son projet d’études en Italie avec méthode : un centre présent à Brazzaville, un enseignement exigeant de l’italien de A1 à B2, et un parcours suivi étape par étape.</p>
-      <div class="float-key" id="floatKey" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <span class="kicker up">Centre de langue italienne</span>
+        <h1 class="up" style="--d:.1s">Apprenez l’italien,<br />préparez votre avenir en Italie</h1>
+        <p class="lead up" style="--d:.2s">Depuis Brazzaville et Pointe-Noire, La Chiave accompagne les étudiants dans leur apprentissage de l’italien et dans la construction de leur projet d’études en Italie, étape par étape.</p>
+        <a href="#formations" class="btn up" style="--d:.3s">Découvrir nos formations <span class="ar">→</span></a>
+      </div>
+    </div>
+    <p class="hero-note" aria-hidden="true">Parla<br />italiano !<small>♥</small></p>
+  </section>
+
+  <!-- ATOUTS -->
+  <section class="perks">
+    <div class="wrap perks-grid">
+      <div class="perk up"><div class="ic"><span class="flag"><i></i><i></i><i></i></span></div><h3>Un italien exigeant</h3><p>Italien langue seconde (L2), de A1 à B2, avec des situations concrètes.</p></div>
+      <div class="perk up" style="--d:.08s"><div class="ic"><svg viewBox="0 0 48 48" stroke="#1F5C40"><circle cx="24" cy="13" r="6"/><circle cx="11" cy="18" r="4.5"/><circle cx="37" cy="18" r="4.5"/><path d="M14 38c0-6 4.5-11 10-11s10 5 10 11M3 36c0-5 3.5-9 8-9 1.5 0 3 .4 4 1M45 36c0-5-3.5-9-8-9-1.5 0-3 .4-4 1"/></svg></div><h3>Des enseignants de proximité</h3><p>Une équipe qui connaît votre réalité et suit vos objectifs.</p></div>
+      <div class="perk up" style="--d:.16s"><div class="ic"><svg viewBox="0 0 48 48" stroke="#D32F2F"><rect x="6" y="9" width="36" height="32" rx="4"/><path d="M6 18h36M15 5v8M33 5v8M13 25h4M22 25h4M31 25h4M13 32h4M22 32h4"/></svg></div><h3>Des cours pour tous les niveaux</h3><p>Du débutant au niveau B2, en présentiel ou en ligne.</p></div>
+      <div class="perk up" style="--d:.24s"><div class="ic"><svg viewBox="0 0 48 48" stroke="#2E8B57"><path d="M24 41S6 30 6 17.5A9.5 9.5 0 0 1 24 13a9.5 9.5 0 0 1 18 4.5C42 30 24 41 24 41z"/></svg></div><h3>Un projet accompagné</h3><p>Du test de niveau à l’entretien consulaire, jusqu’au dossier.</p></div>
     </div>
   </section>
 
-  <!-- PRÉPARATION -->
-  <section class="services light" id="preparation">
-    <h2 class="h2" data-wipe>Tout ce qu’il faut pour<br />préparer l’Italie</h2>
-    <div class="track" id="track"></div>
-  </section>
-
-  <!-- DÉFIS -->
-  <section class="works dark">
-    <div class="wrap">
-      <div class="works-head">
-        <div>
-          <h2 class="h2" data-wipe>Les 4 défis</h2>
-          <p class="rv">Les étapes sont nombreuses. La préparation peut être plus claire : voici les 4 défis majeurs transformés en étapes maîtrisées.</p>
-        </div>
-        <a href="#etapes" class="btn-mini">Voir les étapes <span class="arr">↗</span></a>
+  <!-- FORMATIONS -->
+  <section class="courses" id="formations">
+    <div class="wrap courses-grid">
+      <div class="up">
+        <span class="kicker">Nos formations</span>
+        <h2 class="h2">Une préparation adaptée à votre projet</h2>
+        <p class="lead">Que vous soyez grand débutant ou déjà à l’aise, nous avons la formule qu’il vous faut.</p>
+        <a href="#contact" class="btn green">Évaluer mon niveau <span class="ar">→</span></a>
       </div>
-
-      <article class="case" style="background:var(--sky)">
-        <div class="case-l">
-          <div>
-            <div class="case-top" style="margin-bottom:28px"><span class="case-tag"><b>01</b> Évaluation initiale</span><span class="case-year">A1 → B2</span></div>
-            <h3>Comprendre son niveau sans biais</h3>
-            <p>Situez précisément votre niveau d’italien (A1 à B2) grâce au test de positionnement, avant de choisir votre parcours.</p>
-          </div>
-          <div class="case-stats">
-            <div><small>Durée du test</small><span>~10 min</span></div>
-            <div><small>Coût</small><span>Gratuit</span></div>
-          </div>
-        </div>
-        <div class="case-r"><img src="assets/c1-evaluation.jpg" alt="Évaluation du niveau d'italien" loading="lazy" /></div>
-      </article>
-
-      <article class="case" style="background:var(--sand)">
-        <div class="case-l">
-          <div>
-            <div class="case-top" style="margin-bottom:28px"><span class="case-tag"><b>02</b> Italien L2</span><span class="case-year">39 modules</span></div>
-            <h3>Progresser niveau par niveau</h3>
-            <p>Grammaire, vocabulaire, compréhension et expression : 39 modules de A1 à B2, avec exercices corrigés et tests à la fin de chaque niveau.</p>
-          </div>
-          <div class="case-stats">
-            <div><small>Niveaux</small><span>A1 · A2 · B1 · B2</span></div>
-            <div><small>Évaluation</small><span>Fin de niveau</span></div>
-          </div>
-        </div>
-        <div class="case-r"><img src="assets/c2-tests.jpg" alt="Cours et tests d'italien" loading="lazy" /></div>
-      </article>
-
-      <article class="case" style="background:var(--lilac)">
-        <div class="case-l">
-          <div>
-            <div class="case-top" style="margin-bottom:28px"><span class="case-tag"><b>03</b> Communication &amp; conviction</span><span class="case-year">Entretien</span></div>
-            <h3>Présenter son projet avec assurance</h3>
-            <p>Apprenez à expliciter la cohérence entre votre parcours au Congo et votre diplôme visé en Italie lors de l’entretien consulaire.</p>
-          </div>
-          <div class="case-stats">
-            <div><small>Format</small><span>Vocal &amp; écrit</span></div>
-            <div><small>Retour</small><span>Instantané</span></div>
-          </div>
-        </div>
-        <div class="case-r"><img src="assets/c3-entretien.jpg" alt="Entraînement à l'entretien" loading="lazy" /></div>
-      </article>
-
-      <article class="case" style="background:var(--green)">
-        <div class="case-l">
-          <div>
-            <div class="case-top" style="margin-bottom:28px"><span class="case-tag"><b>04</b> Conformité administrative</span><span class="case-year">Dossier</span></div>
-            <h3>Organiser et sécuriser ses documents</h3>
-            <p>Suivez rigoureusement les étapes de légalisation, Déclaration de Valeur (DoV) et pré-inscription Universitaly avec le centre de Brazzaville.</p>
-          </div>
-          <div class="case-stats">
-            <div><small>Suivi</small><span>Checklist</span></div>
-            <div><small>Avec</small><span>Le centre</span></div>
-          </div>
-        </div>
-        <div class="case-r"><img src="assets/c4-documents.jpg" alt="Organisation des documents" loading="lazy" /></div>
-      </article>
-    </div>
-  </section>
-
-  <!-- CHIFFRES -->
-  <section class="stats dark" data-tone="dark-light">
-    <div class="wrap">
-      <div class="stats-head">
-        <h2 class="h2" data-wipe>Pourquoi nous faire confiance</h2>
-        <p class="rv">Un enseignement exigeant et honnête de l’italien langue seconde (L2), de A1 à B2, sans fausses promesses.</p>
-      </div>
-      <div class="stat-row rv">
-        <div class="stat" style="background:var(--cream)"><small>Niveaux couverts</small><div class="num" data-count="4">0</div><p>Un parcours structuré de A1 à B2, où chaque étape est suivie pour avancer sereinement.</p></div>
-        <div class="stat" style="background:var(--mint)"><small>Modules de cours</small><div class="num" data-count="39">0</div><p>Grammaire, vocabulaire, compréhension et expression, avec exercices corrigés.</p></div>
-        <div class="stat" style="background:var(--sky)"><small>Test de niveau</small><div class="num"><span data-count="100">0</span><sup>%</sup></div><p>Gratuit, sans création de compte préalable et accessible sur smartphone.</p></div>
-        <div class="stat" style="background:var(--lilac)"><small>Durée du test</small><div class="num"><span data-count="10">0</span><sup>min</sup></div><p>Environ 10 minutes pour situer votre niveau et découvrir les prochaines étapes.</p></div>
+      <div class="cards">
+        <article class="card up"><div class="im"><img src="assets/c2-tests.jpg" alt="" loading="lazy" /></div><div class="bd"><h3>Cours d’italien L2</h3><p>Dialogues, vocabulaire et grammaire, de A1 à B2, au centre ou en ligne.</p><a href="#contact" class="more">En savoir plus <span class="ar">→</span></a></div></article>
+        <article class="card up" style="--d:.08s"><div class="im"><img src="assets/c1-evaluation.jpg" alt="" loading="lazy" /></div><div class="bd"><h3>Tests par niveau</h3><p>Tests chronométrés et corrections détaillées pour valider chaque niveau.</p><a href="#contact" class="more">En savoir plus <span class="ar">→</span></a></div></article>
+        <article class="card up" style="--d:.16s"><div class="im"><img src="assets/m-ai.jpg" alt="" loading="lazy" /></div><div class="bd"><h3>Entretien consulaire IA</h3><p>Entraînez-vous à l’oral ou à l’écrit, avec un retour pédagogique immédiat.</p><a href="#contact" class="more">En savoir plus <span class="ar">→</span></a></div></article>
+        <article class="card up" style="--d:.24s"><div class="im"><img src="assets/c4-documents.jpg" alt="" loading="lazy" /></div><div class="bd"><h3>Suivi du dossier</h3><p>Légalisation, Déclaration de Valeur et Universitaly, étape par étape.</p><a href="#contact" class="more">En savoir plus <span class="ar">→</span></a></div></article>
       </div>
     </div>
-    <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
   </section>
 
-  <!-- OUTILS -->
-  <section class="tools light">
-    <h2 class="h2" data-wipe>Nos outils<br />de préparation</h2>
-    <div class="wrap"><div class="grid4" id="toolGrid"></div></div>
-  </section>
-
-  <!-- SIMULATEUR IA -->
-  <section class="testi light" id="entretien" data-tone="light-dark">
-    <div class="wrap">
-      <div class="testi-head">
-        <div>
-          <h2 class="h2" data-wipe>Simulateur d’entretien IA</h2>
-          <p class="rv">L’agent Ambassade IA vous pose une question à la fois, vous permet de répondre oralement ou par écrit, puis génère un retour pédagogique sur votre préparation.</p>
-        </div>
-        <div class="arrows"><button id="prev" aria-label="Précédent">←</button><button id="next" aria-label="Suivant">→</button></div>
+  <!-- POURQUOI NOUS -->
+  <section class="why" id="centre">
+    <div class="why-grid">
+      <div class="why-photo up">
+        <img src="assets/galerie/seminaire-02.jpg" alt="Séminaire d'orientation La Chiave à Pointe-Noire" />
+        <span class="tag" aria-hidden="true">La lingua<br />italiana<br />apre le porte</span>
       </div>
-      <div class="slides" id="slides">
-        <div class="slide" style="background:var(--sky)">
-          <div class="ph"><img src="assets/m-ai.jpg" alt="" loading="lazy" /></div>
-          <div class="q">
-            <blockquote>« Pourquoi avez-vous choisi cette formation en Italie ? »</blockquote>
-            <cite>— Agent Ambassade IA · Question 2 sur 6</cite>
-          </div>
-        </div>
-        <div class="slide" style="background:var(--mint)">
-          <div class="ph"><img src="assets/c3-entretien.jpg" alt="" loading="lazy" /></div>
-          <div class="q">
-            <blockquote>« Cette formation correspond à mon parcours et à mon objectif professionnel. »</blockquote>
-            <cite>— Votre réponse, à l’oral ou à l’écrit</cite>
-          </div>
-        </div>
-        <div class="slide" style="background:var(--sand)">
-          <div class="ph"><img src="assets/m-study.jpg" alt="" loading="lazy" /></div>
-          <div class="q">
-            <blockquote>« Donnez un exemple concret de votre futur métier et citez une matière du programme italien qui complète vos études au Congo. »</blockquote>
-            <cite>— Rapport pédagogique · Cohérence : satisfaisante · Clarté : à renforcer</cite>
-          </div>
-        </div>
-      </div>
-      <p class="note">* Outil d’entraînement pédagogique. Il ne remplace pas les informations officielles des autorités italiennes.</p>
-    </div>
-  </section>
-
-  <!-- AVANT / APRÈS -->
-  <section class="ba-pin dark" id="avantApres">
-    <div class="ba-sticky">
-      <h2 class="ba-words" aria-label="Avant vs Après"><span>Avant</span><span>vs</span><span>Après</span></h2>
-    <div class="wrap ba-cards">
-      <div class="ba-grid">
-        <div class="ba-col before">
-          <h3>Sans préparation</h3>
-          <p>Partir étudier en Italie est un projet. Les étapes sont nombreuses.</p>
-          <div class="ba-item"><span class="ic">✕</span><div><h4>Niveau incertain</h4><p>Difficile de savoir par où commencer sans connaître son niveau réel d’italien.</p></div></div>
-          <div class="ba-item"><span class="ic">✕</span><div><h4>Projet difficile à expliquer</h4><p>La cohérence entre le parcours au Congo et le diplôme visé reste floue.</p></div></div>
-          <div class="ba-item"><span class="ic">✕</span><div><h4>Dossier dispersé</h4><p>Légalisation, DoV et Universitaly : des démarches faciles à mal organiser.</p></div></div>
-        </div>
-        <div class="ba-col after">
-          <h3>Avec La Chiave</h3>
-          <p>Nous vous aidons à le préparer avec méthode.</p>
-          <div class="ba-item"><span class="ic">✓</span><div><h4>Niveau situé et validé</h4><p>Test de positionnement, puis tests de fin de niveau de A1 à B2.</p></div></div>
-          <div class="ba-item"><span class="ic">✓</span><div><h4>Projet présenté avec assurance</h4><p>Entraînement à l’entretien avec l’Agent IA pour gagner en aisance.</p></div></div>
-          <div class="ba-item"><span class="ic">✓</span><div><h4>Documents suivis</h4><p>Une checklist et des échéances suivies avec le centre de Brazzaville.</p></div></div>
-        </div>
-      </div>
-    </div>
-    </div>
-  </section>
-
-  <!-- FEUILLE DE ROUTE -->
-  <section class="plans cream" id="etapes">
-    <div class="wrap">
-      <div class="plans-head">
-        <h2 class="h2" data-wipe>De votre première évaluation<br />à votre projet préparé</h2>
-        <p class="rv">Un parcours progressif pensé pour les étudiants du Congo vers l’Italie.</p>
-      </div>
-      <div class="plan-grid">
-        <div class="plan rv">
-          <div class="plan-top"><span>Diagnostic</span><span class="plan-step" style="background:var(--sky)">Étape 1</span></div>
-          <div class="big">Évaluez votre niveau initial</div>
-          <p>Passez un test de positionnement gratuit pour situer votre niveau d’italien de départ.</p>
-          <a href="#contact" class="btn btn-ink"><span>Faire le test gratuitement</span><span class="arr">↗</span></a>
-          <span class="inc">Inclus :</span>
-          <ul><li>Environ 10 minutes</li><li>Sans création de compte préalable</li><li>100 % accessible sur smartphone</li><li>Résultats indicatifs immédiats</li></ul>
-        </div>
-        <div class="plan rv">
-          <div class="plan-top"><span>Entraînement</span><span class="plan-step" style="background:var(--mint)">Étape 2</span></div>
-          <div class="big">Suivez un parcours personnalisé</div>
-          <p>Suivez les modules de votre niveau, faites les exercices ciblés et participez aux séances de cours au centre de Brazzaville ou en ligne.</p>
-          <a href="#contact" class="btn btn-ink"><span>Contacter le centre</span><span class="arr">↗</span></a>
-          <span class="inc">Inclus :</span>
-          <ul><li>Cours d’italien L2, de A1 à B2</li><li>Dialogues, vocabulaire et grammaire</li><li>Assistant de prononciation</li><li>Cours en présentiel ou en ligne</li></ul>
-        </div>
-        <div class="plan wide rv">
-          <div style="display:flex;flex-direction:column;gap:22px">
-            <div class="plan-top"><span>Finalisation</span><span class="plan-step" style="background:var(--peach)">Étape 3</span></div>
-            <div class="big">Validez votre niveau</div>
-            <p>Passez les tests de fin de niveau et entraînez-vous à l’oral avec l’Agent IA pour gagner en aisance.</p>
-            <a href="#contact" class="btn btn-ink"><span>Commencer mon projet</span><span class="arr">↗</span></a>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:18px">
-            <span class="inc">Inclus :</span>
-            <ul class="cols">
-              <li>Tests chronométrés par niveau</li><li>Corrections détaillées</li>
-              <li>Entretien consulaire IA</li><li>Retour pédagogique instantané</li>
-              <li>Suivi du projet</li><li>Archivage des documents</li>
-              <li>Échéances suivies en direct</li><li>Visibilité partagée avec le centre</li>
-            </ul>
+      <div class="wrap" style="margin:0;padding-right:28px">
+        <div class="up" style="--d:.1s">
+          <span class="kicker">Pourquoi nous choisir ?</span>
+          <h2 class="h2">Plus qu’un cours de langue,<br />une préparation complète</h2>
+          <div class="feats">
+            <div class="feat"><span class="ic"><svg viewBox="0 0 34 34"><path d="M3 12 17 6l14 6-14 6z"/><path d="M8 15v7c2.5 2.5 15.5 2.5 18 0v-7M31 12v8"/></svg></span><div><b>Une équipe engagée</b><p>Des enseignants présents à Brazzaville et à Pointe-Noire.</p></div></div>
+            <div class="feat"><span class="ic"><svg viewBox="0 0 34 34"><circle cx="17" cy="17" r="13"/><path d="M4 17h26M17 4c4.5 4.5 4.5 21.5 0 26M17 4c-4.5 4.5-4.5 21.5 0 26"/></svg></span><div><b>Un cadre inspirant</b><p>Au centre ou en ligne, au rythme de votre projet.</p></div></div>
+            <div class="feat"><span class="ic"><svg viewBox="0 0 34 34"><path d="M17 3l4 8.5 9.5 1.2-7 6.5 1.9 9.3L17 23.8 8.6 28.5l1.9-9.3-7-6.5L13 11.5z"/></svg></span><div><b>Des résultats concrets</b><p>Un parcours mesurable, sans fausses promesses.</p></div></div>
+            <div class="feat"><span class="ic"><svg viewBox="0 0 34 34"><path d="M17 29S4 21 4 12.5A6.5 6.5 0 0 1 17 9.5a6.5 6.5 0 0 1 13 3C30 21 17 29 17 29z"/></svg></span><div><b>Une communauté</b><p>Des étudiants qui partagent le même projet : l’Italie.</p></div></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EN IMAGES (aperçu de la galerie) -->
-  <section class="photos light" id="images">
-    <div class="wrap photos-head">
-      <h2 class="h2" data-wipe>La Chiave en images</h2>
-      <a href="galerie.html" class="btn-mini">Voir la galerie <span class="arr">↗</span></a>
-    </div>
-    <div class="photo-track" id="photoTrack"></div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq cream" id="faq" style="background:#F6F3EE">
-    <div class="wrap faq-grid">
-      <div class="faq-l">
-        <h2 class="h2 rv">Questions <span class="hl">fréquentes</span></h2>
-        <p>Retrouvez les réponses aux questions les plus courantes sur La Chiave et la préparation de votre projet.</p>
-        <div class="faq-help">Une autre question ?<br /><a href="#contact">Contactez le centre.</a></div>
+  <!-- RÉUSSITES -->
+  <section class="trust" id="reussites">
+    <div class="wrap trust-grid">
+      <div class="up">
+        <span class="kicker">Ils ont réussi</span>
+        <h2 class="h2">Leur projet parle<br />de lui-même</h2>
+        <a href="galerie.html" class="more">Voir la galerie <span class="ar">→</span></a>
       </div>
-      <div>
-        <details class="qa" open><summary>Qu’est-ce que La Chiave ?<span class="pm">+</span></summary><p>La Chiave est une plateforme de préparation académique, linguistique et consulaire pour les candidats congolais souhaitant intégrer une université en Italie.</p></details>
-        <details class="qa"><summary>À qui s’adresse la plateforme ?<span class="pm">+</span></summary><p>Aux bacheliers, étudiants et professionnels préparant un départ vers une licence, un master ou souhaitant apprendre l’italien dès maintenant.</p></details>
-        <details class="qa"><summary>Le test de niveau est-il gratuit ?<span class="pm">+</span></summary><p>Oui, le test indicatif est 100 % gratuit et ne requiert aucune carte bancaire.</p></details>
-        <details class="qa"><summary>La Chiave garantit-elle l’obtention d’un visa ?<span class="pm">+</span></summary><p>Non. Seules les autorités consulaires et universitaires italiennes sont décisionnaires. La Chiave agit uniquement comme organisme de préparation pédagogique.</p></details>
-        <details class="qa"><summary>L’entretien IA fonctionne-t-il sur smartphone ?<span class="pm">+</span></summary><p>Oui, vous pouvez répondre par message écrit ou par la voix directement depuis votre navigateur mobile habituel.</p></details>
+      <div class="wins">
+        <article class="win up"><div class="av" style="--pos:72% 18%"><img src="assets/galerie/visa-01.jpg" alt="" /></div><p>Préparation au centre de Brazzaville, jusqu’à l’obtention du visa d’études.</p><b>Visa d’études obtenu</b><span>Brazzaville</span></article>
+        <article class="win up" style="--d:.08s"><div class="av" style="--pos:70% 34%"><img src="assets/galerie/visa-04.jpg" alt="" /></div><p>Un parcours suivi étape par étape, du niveau d’italien au dossier.</p><b>Visa d’études obtenu</b><span>Brazzaville</span></article>
+        <article class="win up" style="--d:.16s"><div class="av" style="--pos:50% 20%"><img src="assets/galerie/depart-aeroport.jpg" alt="" /></div><p>Des étudiants accompagnés jusqu’au départ vers l’Italie.</p><b>Départ vers l’Italie</b><span>Juillet 2024</span></article>
       </div>
     </div>
   </section>
 
-  <!-- CTA FINAL -->
+  <!-- APPEL FINAL -->
   <section class="final" id="contact">
-    <div class="final-box">
-      <div class="emblems emblems-ink" data-emblems aria-hidden="true"></div>
-      <div class="pixels" id="ctaPixels" aria-hidden="true"></div>
-      <h2 data-wipe>Commencez votre projet avec une équipe qui vous accompagne depuis Brazzaville</h2>
-      <p class="rv">Évaluez votre niveau, découvrez les prochaines étapes et échangez avec notre centre pour mieux préparer votre parcours vers l’Italie.</p>
-      <div class="cta-row rv">
-        <a href="https://wa.me/242069541740" target="_blank" rel="noopener" class="btn btn-ink"><span>Contacter sur WhatsApp</span><span class="arr">↗</span></a>
-      </div>
+    <div class="final-bg" role="img" aria-label="Le village de Manarola, Cinque Terre, Italie"></div>
+    <div class="final-veil" aria-hidden="true"></div>
+    <div class="wrap final-inner">
+      <div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
+      <h2 class="up">Prêt à parler italien ?</h2>
+      <p class="up" style="--d:.08s">Rejoignez La Chiave et commencez votre projet italien dès aujourd’hui.</p>
+      <a href="https://wa.me/242069541740" target="_blank" rel="noopener" class="btn up" style="--d:.16s">S’inscrire maintenant <span class="ar">→</span></a>
+      <p class="script" aria-hidden="true">Votre avenir<br />commence par<br />une nouvelle langue !<svg width="120" height="10" viewBox="0 0 120 10"><path d="M2 7 C40 2 80 2 118 5" stroke="#2E9B4F" stroke-width="3" fill="none" stroke-linecap="round"/></svg></p>
     </div>
   </section>
 </main>
 
-<footer class="dark">
+<footer>
   <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <span class="foot-lbl">{EMAIL}</span>
-        <a class="foot-big" href="mailto:contact@lachiave.it">contact@lachiave.it</a>
-        <span class="foot-lbl">{TÉLÉPHONE}</span>
-        <a class="foot-big foot-tel" href="tel:+242068002729"><small>Brazzaville</small>+242 06 800 27 29</a>
-        <a class="foot-big foot-tel" href="tel:+242061604154"><small>Pointe-Noire</small>+242 06 160 41 54</a>
-        <span class="foot-lbl">{WHATSAPP}</span>
-        <a class="foot-big" href="https://wa.me/242069541740" target="_blank" rel="noopener">+242 06 954 17 40</a>
-      </div>
-      <div>
-        <span class="foot-lbl">{NAVIGATION}</span>
-        <ul><li><a href="#approche">Le centre</a></li><li><a href="#preparation">Préparation</a></li><li><a href="#entretien">Entretien IA</a></li><li><a href="#etapes">Étapes</a></li><li><a href="galerie.html">Galerie</a></li><li><a href="#faq">FAQ</a></li></ul>
-      </div>
-      <div>
-        <span class="foot-lbl">{CENTRE}</span>
-        <ul><li>Brazzaville &amp; Pointe-Noire</li><li>République du Congo</li><li>Lundi – Samedi · 8h – 18h</li><li>Présentiel &amp; en ligne</li></ul>
-      </div>
-      <div>
-        <span class="foot-lbl">{SUIVEZ-NOUS}</span>
-        <ul><li><a href="https://wa.me/242069541740" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:contact@lachiave.it">Email</a></li></ul>
+    <div class="foot">
+      <a href="#top" class="brand"><img src="assets/logo.png" alt="" /><span><b>La Chiave</b><small>Centro Linguistico</small></span></a>
+      <nav class="foot-nav"><a href="#formations">Nos formations</a><a href="#centre">Notre centre</a><a href="#reussites">Réussites</a><a href="galerie.html">Galerie</a><a href="#contact">Contact</a></nav>
+      <div class="foot-contact">
+        <div><small>Brazzaville</small><a href="tel:+242068002729">+242 06 800 27 29</a></div>
+        <div><small>Pointe-Noire</small><a href="tel:+242061604154">+242 06 160 41 54</a></div>
+        <div><small>WhatsApp</small><a href="https://wa.me/242069541740" target="_blank" rel="noopener">+242 06 954 17 40</a></div>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>© 2026 La Chiave. Tous droits réservés.</span>
-      <span>Entraînement pédagogique indépendant · Non affilié officiellement aux services consulaires</span>
+    <div class="legal">
+      <span>© 2026 La Chiave · Préparation pédagogique indépendante, non affiliée aux services consulaires.</span>
+      <span>Photos : Saint-Pierre, Rome — Jebulon (CC0) · Manarola — Timothy A. Gonsalves (<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>), via Wikimedia Commons</span>
     </div>
   </div>
-  <div class="giant" aria-hidden="true">La Chiave</div>
-  <div class="pixels foot-pixels" id="footPixels" aria-hidden="true"></div>
 </footer>
 
-<script src="assets/site.js"></script>
 <script>
-  const { scatter, splitLines, reduced } = LaChiave;
-  LaChiave.renderEmblems();
-  LaChiave.initMenu();
-
-  // Pavés pixel pastel (hero, CTA et pied de page).
-  function layoutPixels() {
-    const wide = innerWidth > 960;
-    scatter(document.getElementById('heroPixels'), wide ? ['top', 'bottom', 'side', 'side'] : ['top', 'bottom'], wide ? 30 : 14);
-    scatter(document.getElementById('footPixels'), ['bottom'], wide ? 18 : 8);
-    scatter(document.getElementById('ctaPixels'), ['top', 'bottom'], wide ? 26 : 12);
-    document.querySelectorAll('#ctaPixels i').forEach(i => i.style.background = '#0E1E1D');
-  }
-  layoutPixels();
-  LaChiave.animatePixels(['heroPixels', 'footPixels']);
-  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(layoutPixels, 200); });
-
-  // Icônes pixel : chaque lettre de la carte = une couleur (« . » = vide).
-  function pixelIcon(map, palette, size) {
-    const rows = map.trim().split('\n').map(r => r.trim());
-    const n = rows[0].length, u = size / n;
-    let rects = '';
-    rows.forEach((row, y) => [...row].forEach((ch, x) => {
-      if (ch !== '.') rects += `<rect x="${x * u}" y="${y * u}" width="${u + .3}" height="${u + .3}" fill="${palette[ch]}"/>`;
-    }));
-    return `<svg class="pix" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-hidden="true">${rects}</svg>`;
-  }
-  const ICONS = {
-    key: `
-      ............
-      .aaaa.......
-      abbbba......
-      ab..ba......
-      ab..baaaaaaa
-      abbbbabbbbbb
-      .aaaa..a.a.a
-      .......a.a..
-      ............
-      ............
-      ............
-      ............`,
-    book: `
-      ............
-      .aaaaa.aaaaa
-      .abbbbabbbba
-      .abccbabccba
-      .abbbbabbbba
-      .abccbabccba
-      .abbbbabbbba
-      .abccbabccba
-      .abbbbabbbba
-      .aaaaaaaaaaa
-      ......a.....
-      ............`,
-    target: `
-      ............
-      ....aaaa....
-      ..aabbbbaa..
-      .abbaaaabba.
-      .abaccccaba.
-      abacaaaacaba
-      abacaddacaba
-      abacaaaacaba
-      .abaccccaba.
-      .abbaaaabba.
-      ..aabbbbaa..
-      ....aaaa....`,
-    chat: `
-      ............
-      .aaaaaaaaaa.
-      abbbbbbbbbba
-      abccbccbccba
-      abbbbbbbbbba
-      abccccccbbba
-      abbbbbbbbbba
-      .aaaaabaaaa.
-      .....aba....
-      ......aa....
-      ............
-      ............`,
-    list: `
-      ............
-      .aaaaaaaaaa.
-      .abbbbbbbba.
-      .abcbddddba.
-      .abbbbbbbba.
-      .abcbddddba.
-      .abbbbbbbba.
-      .abcbddddba.
-      .abbbbbbbba.
-      .abcbddbbba.
-      .abbbbbbbba.
-      .aaaaaaaaaa.`,
-    mic: `
-      ....aaaa....
-      ...abbbba...
-      ...abccba...
-      ...abbbba...
-      ...abccba...
-      .a.abbbba.a.
-      .a.abbbba.a.
-      .aa.aaaa.aa.
-      ..aa....aa..
-      ....aaaa....
-      .....aa.....
-      ...aaaaaa...`,
-    chart: `
-      ............
-      a...........
-      a.........bb
-      a.........bb
-      a......cc.bb
-      a......cc.bb
-      a...dd.cc.bb
-      a...dd.cc.bb
-      a.e.dd.cc.bb
-      a.e.dd.cc.bb
-      aaaaaaaaaaaa
-      ............`,
-    doc: `
-      ............
-      ..aaaaaa....
-      ..abbbbaa...
-      ..abbbbaba..
-      ..abbbbaaaa.
-      ..abccccbba.
-      ..abbbbbbba.
-      ..abccccbba.
-      ..abbbbbbba.
-      ..abcccbbba.
-      ..abbbbbbba.
-      ..aaaaaaaaa.`
-  };
-  const P = (a, b, c, d, e) => ({ a, b, c: c || a, d: d || a, e: e || a });
-
-  // Cartes « Préparation » (dupliquées pour une boucle continue).
-  const SERVICES = [
-    { t: 'Évaluation initiale', d: 'Situez précisément votre niveau d’italien (A1 à B2) grâce au test de positionnement.', bg: '#F3F1FF', i: 'target', p: P('#5B4BB7', '#B8A9FF', '#5B4BB7', '#E85D75') },
-    { t: 'Tests par niveau', d: 'Tests chronométrés, exercices par compétence et corrections détaillées pour valider chaque niveau.', bg: '#FFF8F2', i: 'chart', p: P('#0E1E1D', '#F08A3C', '#F5B544', '#7FC97F', '#5B8DEF') },
-    { t: 'Entretien consulaire IA', d: 'Entraînez-vous à répondre à des questions réalistes avec retour pédagogique instantané.', bg: '#F1FAFF', i: 'chat', p: P('#2C6FBF', '#B0E3FF', '#2C6FBF') },
-    { t: 'Cours d’italien L2', d: 'Des cours complets avec dialogues, vocabulaire et grammaire, de A1 à B2.', bg: '#FEF2FF', i: 'book', p: P('#8A3FA0', '#F3C4FF', '#8A3FA0') },
-    { t: 'Prononciation', d: 'Un assistant de prononciation pour écouter et répéter chaque mot.', bg: '#F6FFF1', i: 'mic', p: P('#2F8A3A', '#8CFFA7', '#2F8A3A') },
-    { t: 'Suivi du projet', d: 'Visualisez vos progrès et suivez les échéances avec nos conseillers.', bg: '#FFF2F2', i: 'list', p: P('#B5413A', '#FFFFFF', '#2F8A3A', '#E8A39E') },
-    { t: 'Documents', d: 'Légalisation, Déclaration de Valeur (DoV) et pré-inscription Universitaly, étape par étape.', bg: '#FFF1DF', i: 'doc', p: P('#A8661A', '#FFFFFF', '#FFD9A8') },
-  ];
-  const card = s => `<div class="svc" style="background:${s.bg}"><h3>${s.t}</h3>${pixelIcon(ICONS[s.i], s.p, 150)}<p>${s.d}</p></div>`;
-  document.getElementById('track').innerHTML = [...SERVICES, ...SERVICES].map(card).join('');
-
-  // Damier « Outils » : cases colorées en alternance avec des cases blanches.
-  const TOOLS = [
-    { l: 'Cours L2', i: 'book', bg: '#FFE4E1', p: P('#0E1E1D', '#FFFFFF', '#0E1E1D') }, null,
-    { l: 'Tests', i: 'chart', bg: '#E6FFDC', p: P('#0E1E1D', '#0E1E1D', '#0E1E1D', '#0E1E1D', '#0E1E1D') }, null,
-    null, { l: 'Entretien IA', i: 'chat', bg: '#FCE4FF', p: P('#0E1E1D', '#FFFFFF', '#0E1E1D') },
-    null, { l: 'Prononciation', i: 'mic', bg: '#FFEBD6', p: P('#0E1E1D', '#FFFFFF', '#0E1E1D') },
-    { l: 'Positionnement', i: 'target', bg: '#DFF1FF', p: P('#0E1E1D', '#FFFFFF', '#0E1E1D', '#0E1E1D') }, null,
-    { l: 'La clé', i: 'key', bg: '#E8E3FF', p: P('#0E1E1D', '#FFFFFF') }, null,
-  ];
-  document.getElementById('toolGrid').innerHTML = TOOLS.map(t => t
-    ? `<div class="tile" style="background:${t.bg}">${pixelIcon(ICONS[t.i], t.p, 72)}<span class="lbl">${t.l}</span></div>`
-    : `<div class="tile"></div>`).join('');
-
-  // Clé pixel flottante et bandeau défilant.
-  document.getElementById('floatKey').innerHTML = pixelIcon(ICONS.key, P('#2F8A3A', '#ABFFA8'), 220);
-  const TICKER = ['Italien L2', 'Brazzaville', 'A1 → B2', 'Universitaly', 'Déclaration de Valeur', 'Entretien consulaire', 'Présentiel & en ligne'];
-  document.getElementById('ticker').innerHTML = [...TICKER, ...TICKER, ...TICKER, ...TICKER].map(t => `<span>${t}</span>`).join('');
-
-  // Bande de photos du centre (aperçu de la galerie), en boucle continue.
-  const PHOTOS = [
-    ['visa-04.jpg', 'Visa d’études obtenu'], ['seminaire-01.jpg', 'Séminaire d’orientation · Pointe-Noire'],
-    ['visa-01.jpg', 'Visa d’études obtenu'], ['equipe.jpg', 'L’équipe La Chiave'],
-    ['depart-aeroport.jpg', 'Départ vers l’Italie'], ['visa-07.jpg', 'Visa d’études obtenu'],
-    ['directeur-conference.jpg', 'Séminaire d’orientation · Pointe-Noire'], ['visa-03.jpg', 'Visa d’études obtenu'],
-  ];
-  const BG = ['var(--sky)', 'var(--mint)', 'var(--sand)', 'var(--lilac)'];
-  document.getElementById('photoTrack').innerHTML = [...PHOTOS, ...PHOTOS].map(([f, c], i) =>
-    `<a class="photo" href="galerie.html" style="background:${BG[i % 4]}"><img src="assets/galerie/${f}" alt="${c}" /><span>${c}</span></a>`).join('');
-
-  // Titres dévoilés par bandes (découpe en lignes réelles).
-  const wipes = [...document.querySelectorAll('[data-wipe]')];
-  wipes.forEach(splitLines);
-  let rw; addEventListener('resize', () => { clearTimeout(rw); rw = setTimeout(() => { wipes.forEach(splitLines); onScroll(); }, 200); });
-
-  // Compteurs animés.
-  function countUp(el) {
-    const end = +el.dataset.count, t0 = performance.now(), dur = 1400;
-    const step = now => {
-      const k = Math.min(1, (now - t0) / dur);
-      el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3)));
-      if (k < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Apparitions au défilement.
   const io = new IntersectionObserver(entries => entries.forEach(e => {
     if (!e.isIntersecting) return;
-    e.target.classList.add('on');
-    e.target.querySelectorAll('[data-count]').forEach(countUp);
+    e.target.classList.add('in');
     io.unobserve(e.target);
-  }), { threshold: .2 });
-  document.querySelectorAll('.rv, [data-wipe]:not([data-wipe="scroll"]):not([data-wipe="load"])').forEach(el => io.observe(el));
+  }), { threshold: .15 });
+  document.querySelectorAll('.up, .final').forEach(el => io.observe(el));
+  if (reduced) document.querySelectorAll('.up').forEach(el => el.classList.add('in'));
 
-  // ---------- Effets liés au défilement ----------
-  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-  const mix = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
-  const INK = [14, 30, 29], WHITE = [255, 255, 255];
-  const approach = document.querySelector('[data-wipe="scroll"]');
-  const tones = [...document.querySelectorAll('[data-tone]')];
-  const statRow = document.querySelector('.stat-row');
-  const pin = document.getElementById('avantApres');
-  const key = document.querySelector('#floatKey');
+  // En-tête : ombre au défilement et lien actif selon la section visible.
+  const hdr = document.getElementById('hdr');
+  const links = [...document.querySelectorAll('.menu a[href^="#"]')];
+  const targets = links.map(a => document.querySelector(a.getAttribute('href')));
+  addEventListener('scroll', () => {
+    hdr.classList.toggle('scrolled', scrollY > 8);
+    let current = links[0];
+    targets.forEach((t, i) => { if (t && t.getBoundingClientRect().top < 160) current = links[i]; });
+    links.forEach(a => a.classList.toggle('active', a === current));
+  }, { passive: true });
 
-  function onScroll() {
-    const vh = innerHeight;
-
-    // Texte d'approche : les bandes se retirent ligne par ligne au fil du défilement.
-    if (approach) {
-      const r = approach.getBoundingClientRect();
-      const p = clamp((vh * .85 - r.top) / (vh * .55 + r.height * .4));
-      const lines = approach.querySelectorAll('.ln'), n = lines.length;
-      lines.forEach((ln, i) => {
-        const local = clamp(p * (n + 1) - i);
-        ln.querySelector('.wa').style.transform = `scaleX(${1 - clamp(local * 1.8)})`;
-        ln.querySelector('.wb').style.transform = `scaleX(${1 - clamp(local * 1.8 - .8)})`;
-      });
-    }
-    if (key) {
-      const r = key.getBoundingClientRect();
-      key.style.transform = `translateY(${(r.top - vh / 2) * -.12}px)`;
-    }
-
-    // Fond qui passe du sombre au clair (ou l'inverse) quand la section entre à l'écran.
-    tones.forEach(sec => {
-      const r = sec.getBoundingClientRect();
-      const t = clamp((vh * .8 - r.top) / (vh * .5));
-      const [from, to] = sec.dataset.tone === 'dark-light' ? [INK, WHITE] : [WHITE, INK];
-      const bg = mix(from, to, t), fg = mix(to, from, t);
-      sec.style.background = `rgb(${bg})`;
-      sec.style.color = `rgb(${fg})`;
-      sec.style.setProperty('--wipe', t > .5 ? (sec.dataset.tone === 'dark-light' ? 'var(--ink)' : 'var(--panel)') : (sec.dataset.tone === 'dark-light' ? 'var(--panel)' : 'var(--ink)'));
-    });
-
-    // Chiffres : les cartes partent en escalier puis s'alignent.
-    if (statRow && innerWidth > 560) {
-      const r = statRow.getBoundingClientRect();
-      const p = clamp((vh - r.top) / (vh * .7));
-      [...statRow.children].forEach((c, i) => { c.style.transform = `translateY(${(1 - p) * i * 70}px)`; });
-    }
-
-    // Avant / Après : section épinglée, les mots s'écartent puis les cartes montent.
-    if (pin) {
-      if (innerWidth > 960) {
-        const r = pin.getBoundingClientRect();
-        const p = clamp(-r.top / (r.height - vh));
-        const spread = clamp(p / .45);
-        pin.style.setProperty('--gap', `${18 + spread * innerWidth * .28}px`);
-        pin.style.setProperty('--fs', `${56 + spread * 70}px`);
-        pin.style.setProperty('--o', (1 - clamp((p - .3) / .3) * .88).toFixed(3));
-        pin.style.setProperty('--ty', `${(1 - clamp((p - .35) / .45)) * vh}px`);
-      } else {
-        ['--gap', '--fs', '--o', '--ty'].forEach(v => pin.style.removeProperty(v));
-      }
-    }
-  }
-  let ticking = false;
-  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { onScroll(); ticking = false; }); } }, { passive: true });
-  onScroll();
-
-  // ---------- Préchargeur : pavés verts qui se dissolvent, puis dévoilement du titre ----------
-  const loader = document.getElementById('loader');
-  const heroTitle = document.querySelector('[data-wipe="load"]');
-  if (reduced) {
-    loader.remove(); document.body.classList.remove('loading'); heroTitle.classList.add('on');
-  } else {
-    const c = innerWidth > 960 ? 8 : 4, r = innerWidth > 960 ? 6 : 8;
-    loader.style.setProperty('--c', c); loader.style.setProperty('--r', r);
-    loader.insertAdjacentHTML('beforeend', Array.from({ length: c * r }, () => `<i style="--d:${(.15 + Math.random() * .55).toFixed(2)}s"></i>`).join(''));
-    const start = performance.now();
-    const finish = () => setTimeout(() => {
-      loader.classList.add('out');
-      document.body.classList.remove('loading');
-      setTimeout(() => heroTitle.classList.add('on'), 450);
-      setTimeout(() => loader.remove(), 1000);
-    }, Math.max(0, 1300 - (performance.now() - start)));
-    if (document.readyState === 'complete') finish(); else addEventListener('load', finish);
-  }
-
-  // Carrousel du simulateur IA.
-  const slides = document.getElementById('slides');
-  let idx = 0;
-  function go(d) {
-    const n = slides.children.length;
-    idx = (idx + d + n) % n;
-    const w = slides.children[0].getBoundingClientRect().width + 24;
-    slides.style.transform = `translateX(${-idx * w}px)`;
-  }
-  document.getElementById('prev').onclick = () => go(-1);
-  document.getElementById('next').onclick = () => go(1);
-  addEventListener('resize', () => go(0));
+  // Menu mobile.
+  const burger = document.querySelector('.burger'), mm = document.getElementById('mobileMenu');
+  burger.onclick = () => { const open = mm.classList.toggle('open'); burger.setAttribute('aria-expanded', open); };
+  mm.querySelectorAll('a').forEach(a => a.onclick = () => { mm.classList.remove('open'); burger.setAttribute('aria-expanded', false); });
 </script>
 </body>
 </html>

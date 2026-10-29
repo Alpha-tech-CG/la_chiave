@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>La Chiave — Centro Linguistico · Brazzaville & Pointe-Noire</title>
+<meta name="description" content="La Chiave accompagne les étudiants du Congo dans l'apprentissage de l'italien et la préparation de leur projet d'études en Italie." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="../assets/favicon.png" />
+<style>
+  :root {
+    --paper: #F6F1E7;
+    --paper-2: #EDE4D3;
+    --ink: #14211D;
+    --ink-soft: rgba(20,33,29,.68);
+    --green: #1D4B40;
+    --green-2: #2F7D4F;
+    --red: #C4372C;
+    --line: rgba(20,33,29,.14);
+    --serif: Fraunces, Georgia, serif;
+    --sans: Manrope, system-ui, sans-serif;
+    --max: 1240px;
+    --ease: cubic-bezier(.2,.75,.15,1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+  section { position: relative; }
+  main { overflow-x: clip; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--green); }
+  .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+  .serif { font-family: var(--serif); font-weight: 350; letter-spacing: -.02em; }
+  .h2 { font-family: var(--serif); font-weight: 350; font-size: clamp(36px, 5vw, 64px); line-height: 1.04; letter-spacing: -.025em; }
+  .h2 em, h1 em { font-style: italic; color: var(--green-2); }
+  .h2 em.r, h1 em.r { color: var(--red); }
+  .lead { font-size: 17px; line-height: 1.65; color: var(--ink-soft); }
+
+  /* Liseré tricolore */
+  .tricolore { height: 4px; display: flex; }
+  .tricolore i { flex: 1; }
+  .tricolore i:nth-child(1) { background: var(--green-2); }
+  .tricolore i:nth-child(2) { background: #fff; }
+  .tricolore i:nth-child(3) { background: var(--red); }
+
+  /* En-tête */
+  header { position: sticky; top: 0; z-index: 40; background: rgba(246,241,231,.82); backdrop-filter: blur(14px); border-bottom: 1px solid transparent; transition: border-color .3s; }
+  header.scrolled { border-color: var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 78px; gap: 20px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand img { width: 46px; height: 46px; }
+  .brand b { font-family: var(--serif); font-weight: 450; font-size: 25px; letter-spacing: -.02em; }
+  .brand small { display: block; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); }
+  .menu { display: flex; gap: 30px; font-size: 14px; font-weight: 500; }
+  .menu a { position: relative; padding: 4px 0; }
+  .menu a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .45s var(--ease); }
+  .menu a:hover::after { transform: scaleX(1); transform-origin: left; }
+  .pill { display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; border-radius: 999px; background: var(--green); color: var(--paper); font-size: 14px; font-weight: 600; transition: background .3s, transform .3s var(--ease); }
+  .pill:hover { background: var(--ink); transform: translateY(-2px); }
+  .pill .ar { transition: transform .3s var(--ease); }
+  .pill:hover .ar { transform: translateX(4px); }
+  .pill.ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+  .pill.ghost:hover { background: var(--ink); color: var(--paper); }
+  .pill.light { background: var(--paper); color: var(--green); }
+  .pill.light:hover { background: #fff; }
+  .burger { display: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: none; cursor: pointer; }
+  .burger span { display: block; width: 16px; height: 1.5px; background: var(--ink); margin: 4px auto; }
+  .mobile-menu { display: none; padding: 8px 32px 28px; border-top: 1px solid var(--line); }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a { display: block; font-family: var(--serif); font-size: 28px; padding: 10px 0; }
+
+  /* Hero */
+  .hero { padding: 72px 0 110px; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 56px; align-items: center; }
+  .hero h1 { font-family: var(--serif); font-weight: 330; font-size: clamp(48px, 7.4vw, 104px); line-height: .98; letter-spacing: -.035em; margin: 26px 0 30px; }
+  .hero .lead { max-width: 520px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; }
+  .hero-facts { display: flex; gap: 36px; margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line); flex-wrap: wrap; }
+  .hero-facts b { display: block; font-family: var(--serif); font-weight: 400; font-size: 34px; letter-spacing: -.02em; }
+  .hero-facts span { font-size: 13px; color: var(--ink-soft); }
+  .collage { position: relative; height: 640px; }
+  .arch { position: absolute; overflow: hidden; border-radius: 999px 999px 18px 18px; box-shadow: 0 30px 60px -30px rgba(20,33,29,.45); }
+  .arch img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.12); transition: transform 1.6s var(--ease); }
+  .arch.in img { transform: scale(1); }
+  .arch-a { left: 6%; top: 0; width: 58%; height: 88%; }
+  .arch-b { right: 0; bottom: 0; width: 42%; height: 52%; border: 8px solid var(--paper); }
+  .seal { position: absolute; left: -2%; bottom: 6%; width: 150px; height: 150px; display: grid; place-items: center; }
+  .seal svg { position: absolute; inset: 0; animation: spin 26s linear infinite; }
+  .seal text { font-family: var(--sans); font-size: 10.5px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; fill: var(--ink); }
+  .seal img { width: 82px; height: 82px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .drawing { position: absolute; pointer-events: none; color: var(--green); opacity: .16; }
+  .drawing svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+  .hero .d-colisee { left: -4%; bottom: -10px; width: 62%; height: 230px; }
+  .hero .d-pise { right: 1%; top: 2%; width: 110px; height: 300px; opacity: .2; }
+
+  /* Bandeau défilant */
+  .ribbon { background: var(--green); color: var(--paper); padding: 22px 0; overflow: hidden; transform: rotate(-1.2deg); margin: -10px -20px 0; }
+  .ribbon-track { display: flex; gap: 40px; width: max-content; animation: slide 38s linear infinite; font-family: var(--serif); font-style: italic; font-size: 30px; font-weight: 300; white-space: nowrap; }
+  .ribbon-track span::after { content: "✦"; font-style: normal; font-size: 16px; margin-left: 40px; color: #E9B949; vertical-align: middle; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  /* Manifeste */
+  .manifesto { padding: 150px 0 120px; }
+  .manifesto .big { font-family: var(--serif); font-weight: 320; font-size: clamp(30px, 3.8vw, 52px); line-height: 1.22; letter-spacing: -.02em; max-width: 1060px; margin-top: 28px; }
+  .manifesto .big .mute { color: rgba(20,33,29,.32); transition: color .5s; }
+  .manifesto .big .mute.lit { color: var(--ink); }
+  .values { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 90px; border-top: 1px solid var(--line); }
+  .value { padding: 36px 32px 8px 0; }
+  .value + .value { padding-left: 32px; border-left: 1px solid var(--line); }
+  .value .num { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--red); }
+  .value h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; margin: 14px 0 12px; letter-spacing: -.01em; }
+  .value p { color: var(--ink-soft); line-height: 1.6; font-size: 15px; }
+
+  /* Préparation */
+  .prep { padding: 40px 0 150px; }
+  .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; margin-bottom: 60px; flex-wrap: wrap; }
+  .sec-head .h2 { max-width: 640px; margin-top: 20px; }
+  .sec-head p { max-width: 380px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card { position: relative; background: #FBF8F2; border: 1px solid var(--line); border-radius: 22px; padding: 32px 30px 30px; min-height: 290px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; transition: transform .5s var(--ease), box-shadow .5s var(--ease), background .4s; }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 30px 50px -30px rgba(20,33,29,.35); background: #fff; }
+  .card .ic { width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center; background: var(--paper-2); color: var(--green); transition: background .4s, color .4s; }
+  .card:hover .ic { background: var(--green); color: var(--paper); }
+  .card svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .card h3 { font-family: var(--serif); font-weight: 400; font-size: 26px; letter-spacing: -.01em; margin: 30px 0 10px; }
+  .card p { font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
+  .card .tag { position: absolute; top: 30px; right: 28px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green-2); }
+
+  /* Défis */
+  .defis { background: var(--paper-2); padding: 150px 0; }
+  .defis-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; }
+  .defis-side { position: sticky; top: 130px; align-self: start; }
+  .defis-side .h2 { margin: 20px 0 24px; }
+  .defi { display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: center; padding: 36px 0; border-top: 1px solid var(--line); }
+  .defi:last-child { border-bottom: 1px solid var(--line); }
+  .defi .ph { height: 170px; border-radius: 16px; overflow: hidden; clip-path: inset(0 0 100% 0); transition: clip-path 1.1s var(--ease); }
+  .defi.in .ph { clip-path: inset(0 0 0 0); }
+  .defi .ph img { width: 100%; height: 100%; object-fit: cover; }
+  .defi .n { font-family: var(--serif); font-style: italic; color: var(--red); font-size: 18px; }
+  .defi h3 { font-family: var(--serif); font-weight: 400; font-size: 30px; letter-spacing: -.015em; margin: 6px 0 10px; line-height: 1.1; }
+  .defi p { color: var(--ink-soft); line-height: 1.6; font-size: 15px; }
+  .defi small { display: inline-block; margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green); }
+
+  /* Chiffres */
+  .numbers { background: var(--green); color: var(--paper); padding: 130px 0; overflow: hidden; }
+  .numbers .eyebrow { color: #E9B949; }
+  .numbers .h2 { margin-top: 20px; max-width: 760px; }
+  .num-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 80px; }
+  .num { padding: 0 28px; border-left: 1px solid rgba(246,241,231,.2); }
+  .num:first-child { padding-left: 0; border-left: 0; }
+  .num b { display: block; font-family: var(--serif); font-weight: 300; font-size: clamp(64px, 8vw, 112px); line-height: 1; letter-spacing: -.04em; }
+  .num b sup { font-size: .32em; font-style: italic; vertical-align: top; margin-left: 4px; color: #E9B949; }
+  .numbers .h2 em { color: #E9B949; }
+  .num > span { display: block; margin-top: 16px; font-size: 15px; line-height: 1.55; color: rgba(246,241,231,.72); max-width: 220px; }
+  .numbers .d-stpierre { right: -2%; bottom: -10px; width: 420px; height: 340px; color: var(--paper); opacity: .1; }
+
+  /* Entretien IA */
+  .ia { padding: 150px 0; }
+  .ia-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .ia .h2 { margin: 20px 0 24px; }
+  .checks { list-style: none; margin: 30px 0 36px; display: grid; gap: 14px; }
+  .checks li { display: flex; gap: 14px; align-items: flex-start; line-height: 1.5; }
+  .checks li::before { content: "✓"; flex: 0 0 26px; height: 26px; border-radius: 50%; background: var(--green); color: var(--paper); font-size: 12px; display: grid; place-items: center; }
+  .note { font-size: 13px; font-style: italic; color: var(--ink-soft); margin-top: 22px; }
+  .chat { background: #FBF8F2; border: 1px solid var(--line); border-radius: 28px; padding: 26px; box-shadow: 0 40px 80px -40px rgba(20,33,29,.4); }
+  .chat-top { display: flex; align-items: center; gap: 12px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+  .chat-top .av { width: 42px; height: 42px; border-radius: 50%; background: var(--green); color: var(--paper); display: grid; place-items: center; font-family: var(--serif); font-style: italic; }
+  .chat-top b { display: block; font-size: 14px; }
+  .chat-top span { font-size: 12px; color: var(--ink-soft); }
+  .chat-top .live { margin-left: auto; display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--green-2); font-weight: 600; }
+  .chat-top .live::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--green-2); animation: pulse 1.6s infinite; }
+  @keyframes pulse { 50% { opacity: .3; } }
+  .bubbles { display: grid; gap: 14px; padding: 22px 0; }
+  .bubble { max-width: 86%; padding: 15px 18px; border-radius: 20px; font-size: 15px; line-height: 1.5; opacity: 0; transform: translateY(14px); transition: opacity .6s, transform .6s var(--ease); }
+  .bubble.in { opacity: 1; transform: none; }
+  .bubble.q { background: var(--paper-2); border-top-left-radius: 6px; }
+  .bubble.a { justify-self: end; background: var(--green); color: var(--paper); border-top-right-radius: 6px; }
+  .report { border-radius: 18px; padding: 18px 20px; background: #FFF6E3; border: 1px solid #F1DFB4; font-size: 14px; line-height: 1.55; opacity: 0; transform: translateY(14px); transition: opacity .6s, transform .6s var(--ease); }
+  .report.in { opacity: 1; transform: none; }
+  .report .row { display: flex; gap: 24px; margin-bottom: 10px; font-size: 13px; }
+  .report .row b { display: block; font-size: 14px; }
+  .ok { color: var(--green-2); } .warn { color: #B7791F; }
+
+  /* Étapes */
+  .steps { padding: 40px 0 150px; }
+  .steps .sec-head { justify-content: center; text-align: center; }
+  .steps .sec-head .eyebrow { justify-content: center; }
+  .timeline { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; padding-top: 50px; }
+  .timeline::before, .timeline .bar { content: ""; position: absolute; top: 18px; left: 0; right: 0; height: 1px; background: var(--line); }
+  .timeline .bar { background: var(--green); transform-origin: left; transform: scaleX(var(--p, 0)); }
+  .step { position: relative; }
+  .step .dot { position: absolute; top: -50px; left: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--paper); border: 1px solid var(--green); display: grid; place-items: center; font-family: var(--serif); font-style: italic; color: var(--green); transition: background .4s, color .4s; }
+  .step.on .dot { background: var(--green); color: var(--paper); }
+  .step small { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--red); }
+  .step h3 { font-family: var(--serif); font-weight: 400; font-size: 32px; letter-spacing: -.015em; margin: 12px 0 12px; line-height: 1.1; }
+  .step p { color: var(--ink-soft); line-height: 1.6; font-size: 15px; }
+
+  /* Galerie */
+  .gallery { padding: 0 0 150px; overflow: hidden; }
+  .strip { display: flex; gap: 20px; padding: 0 32px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; cursor: grab; }
+  .strip::-webkit-scrollbar { display: none; }
+  .strip.drag { cursor: grabbing; scroll-snap-type: none; }
+  .shot { flex: 0 0 auto; scroll-snap-align: start; }
+  .shot .fr { width: 300px; height: 400px; overflow: hidden; border-radius: 999px 999px 16px 16px; }
+  .shot:nth-child(3n+2) .fr { border-radius: 16px; height: 340px; margin-top: 60px; }
+  .shot:nth-child(3n) .fr { border-radius: 16px 16px 999px 999px; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); pointer-events: none; }
+  .shot:hover img { transform: scale(1.05); }
+  .shot figcaption { margin-top: 14px; font-size: 13px; color: var(--ink-soft); }
+  .shot figcaption b { display: block; font-family: var(--serif); font-weight: 400; font-size: 19px; color: var(--ink); }
+
+  /* FAQ */
+  .faq { padding: 140px 0; border-top: 1px solid var(--line); }
+  .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; }
+  .faq .h2 { margin: 20px 0 22px; }
+  .qa { border-bottom: 1px solid var(--line); }
+  .qa summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 20px; align-items: center; padding: 26px 0; font-family: var(--serif); font-size: clamp(20px, 2vw, 25px); font-weight: 400; letter-spacing: -.01em; }
+  .qa summary::-webkit-details-marker { display: none; }
+  .qa summary i { flex: 0 0 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; font-style: normal; transition: transform .4s var(--ease), background .3s, color .3s; }
+  .qa[open] summary i { transform: rotate(45deg); background: var(--green); color: var(--paper); border-color: var(--green); }
+  .qa p { padding: 0 60px 26px 0; color: var(--ink-soft); line-height: 1.65; }
+
+  /* Appel final */
+  .final { padding: 0 32px 32px; }
+  .final-box { position: relative; overflow: hidden; background: var(--green); color: var(--paper); border-radius: 36px; padding: 120px 40px; text-align: center; }
+  .final-box .eyebrow { color: #E9B949; justify-content: center; }
+  .final-box .h2 { max-width: 900px; margin: 22px auto 22px; font-size: clamp(40px, 6vw, 84px); }
+  .final-box .h2 em { color: #E9B949; }
+  .final-box p { max-width: 560px; margin: 0 auto 40px; color: rgba(246,241,231,.75); line-height: 1.6; }
+  .final-box .hero-cta { justify-content: center; }
+  .final-box .pill.ghost { color: var(--paper); box-shadow: inset 0 0 0 1px rgba(246,241,231,.5); }
+  .final-box .pill.ghost:hover { background: var(--paper); color: var(--green); }
+  .final-box .d-pise { left: 4%; bottom: -10px; width: 160px; height: 420px; color: var(--paper); opacity: .14; }
+  .final-box .d-colisee { right: -4%; bottom: -10px; width: 520px; height: 220px; color: var(--paper); opacity: .12; }
+
+  /* Pied de page */
+  footer { padding: 90px 0 30px; overflow: hidden; }
+  .foot { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+  .foot h4 { font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 18px; }
+  .foot ul { list-style: none; display: grid; gap: 10px; font-size: 15px; }
+  .foot ul a:hover { color: var(--green-2); }
+  .foot .motto { font-family: var(--serif); font-style: italic; font-size: 22px; margin: 18px 0 10px; }
+  .tel small { display: block; font-size: 12px; color: var(--ink-soft); }
+  .giant { font-family: var(--serif); font-weight: 300; font-size: clamp(90px, 20vw, 300px); letter-spacing: -.05em; line-height: .85; text-align: center; color: transparent; -webkit-text-stroke: 1px rgba(20,33,29,.22); margin: 70px 0 30px; white-space: nowrap; }
+  .giant em { -webkit-text-stroke: 1px rgba(196,55,44,.45); }
+  .legal { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 24px; }
+
+  /* Révélations au défilement */
+  .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .08em; margin-bottom: -.08em; }
+  .w > span { display: inline-block; transform: translateY(105%); transition: transform 1s var(--ease); transition-delay: var(--d, 0s); }
+  .split.in .w > span { transform: none; }
+  .fade { opacity: 0; transform: translateY(26px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0s); }
+  .fade.in { opacity: 1; transform: none; }
+
+  @media (max-width: 1000px) {
+    .menu, .nav > .pill { display: none; }
+    .burger { display: block; }
+    .hero-grid, .ia-grid, .defis-grid, .faq-grid { grid-template-columns: 1fr; gap: 48px; }
+    .collage { height: 520px; }
+    .defis-side { position: static; }
+    .cards { grid-template-columns: 1fr 1fr; }
+    .num-grid { grid-template-columns: 1fr 1fr; gap: 48px 0; }
+    .num:nth-child(3) { padding-left: 0; border-left: 0; }
+    .foot { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 20px; }
+    .brand small { display: none; }
+    .hero { padding: 40px 0 80px; }
+    .collage { height: 430px; }
+    .seal { width: 112px; height: 112px; }
+    .seal img { width: 60px; height: 60px; }
+    .seal text { font-size: 9px; }
+    .values, .cards, .timeline { grid-template-columns: 1fr; }
+    .value + .value { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+    .defi { grid-template-columns: 1fr; gap: 18px; }
+    .timeline { gap: 60px; }
+    .timeline::before, .timeline .bar { display: none; }
+    .ribbon-track { font-size: 22px; }
+    .strip { padding: 0 20px; }
+    .shot .fr { width: 240px; height: 320px; }
+    .shot:nth-child(3n+2) .fr { height: 270px; }
+    .qa p { padding-right: 0; }
+    .final { padding: 0 12px 12px; }
+    .final-box { padding: 90px 22px; border-radius: 26px; }
+    .foot { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .w > span, .fade, .bubble, .report { transform: none !important; opacity: 1 !important; }
+    .defi .ph { clip-path: none; }
+  }
+</style>
+</head>
+<body>
+<div class="tricolore" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <img src="../assets/logo.png" alt="Logo Centro Linguistico La Chiave" />
+      <span><b>La Chiave</b><small>Centro Linguistico</small></span>
+    </a>
+    <nav class="menu">
+      <a href="#approche">Le centre</a>
+      <a href="#preparation">Préparation</a>
+      <a href="#entretien">Entretien IA</a>
+      <a href="#etapes">Étapes</a>
+      <a href="../galerie.html">Galerie</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#contact" class="pill">Évaluer mon niveau <span class="ar">→</span></a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#approche">Le centre</a>
+    <a href="#preparation">Préparation</a>
+    <a href="#entretien">Entretien IA</a>
+    <a href="#etapes">Étapes</a>
+    <a href="../galerie.html">Galerie</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="drawing d-colisee" data-draw="colisee" aria-hidden="true"></div>
+    <div class="drawing d-pise" data-draw="pise" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow fade">Centro Linguistico · Brazzaville &amp; Pointe-Noire</span>
+        <h1 class="split">Votre avenir en <em>Italie</em> commence par une bonne <em class="r">préparation.</em></h1>
+        <p class="lead fade" style="--d:.5s">Depuis Brazzaville, La Chiave accompagne les étudiants et les apprenants dans leur apprentissage de l’italien et dans la construction de leur projet d’études en Italie.</p>
+        <div class="hero-cta fade" style="--d:.65s">
+          <a href="#contact" class="pill">Évaluer mon niveau gratuitement <span class="ar">→</span></a>
+          <a href="#approche" class="pill ghost">Découvrir le centre</a>
+        </div>
+        <div class="hero-facts fade" style="--d:.8s">
+          <div><b>A1 → B2</b><span>Italien langue seconde</span></div>
+          <div><b>39</b><span>Modules de cours</span></div>
+          <div><b>~10 min</b><span>Test de niveau gratuit</span></div>
+        </div>
+      </div>
+      <div class="collage" aria-label="Photos du centre">
+        <div class="arch arch-a"><img src="../assets/galerie/visa-04.jpg" alt="Une étudiante présente son visa d'études avec un membre du centre" /></div>
+        <div class="arch arch-b"><img src="../assets/galerie/seminaire-02.jpg" alt="Séminaire d'orientation à Pointe-Noire" /></div>
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 150 150"><defs><path id="circ" d="M75 75 m-60 0 a60 60 0 1 1 120 0 a60 60 0 1 1 -120 0" /></defs><text><textPath href="#circ">Carità · Lavoro · Successo · Carità · Lavoro · Successo ·</textPath></text></svg>
+          <img src="../assets/logo.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ribbon" aria-hidden="true"><div class="ribbon-track" id="ribbon"></div></div>
+
+  <!-- APPROCHE -->
+  <section class="manifesto" id="approche">
+    <div class="wrap">
+      <span class="eyebrow fade">Notre approche</span>
+      <p class="big" id="manifesto">Partir étudier en Italie est un projet. Nous vous aidons à le préparer avec méthode : un centre présent à Brazzaville, un enseignement exigeant de l’italien de A1 à B2, et un parcours suivi étape par étape — sans fausses promesses.</p>
+      <div class="values">
+        <div class="value fade"><span class="num">I.</span><h3>Proximité</h3><p>Un centre présent à Brazzaville, avec des enseignants qui connaissent votre réalité et vous accompagnent en personne.</p></div>
+        <div class="value fade" style="--d:.12s"><span class="num">II.</span><h3>Rigueur</h3><p>Un enseignement exigeant et honnête de l’italien langue seconde (L2), de A1 à B2, sans fausses promesses.</p></div>
+        <div class="value fade" style="--d:.24s"><span class="num">III.</span><h3>Progression</h3><p>Un parcours structuré et mesurable, où chaque étape est suivie pour avancer sereinement vers votre objectif.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRÉPARATION -->
+  <section class="prep" id="preparation">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow fade">Préparation</span><h2 class="h2 split">Tout ce qu’il faut pour <em>préparer</em> l’Italie.</h2></div>
+        <p class="lead fade">Un accompagnement au centre, prolongé en ligne : cours, tests, entraînement à l’entretien et suivi de votre dossier.</p>
+      </div>
+      <div class="cards" id="cards"></div>
+    </div>
+  </section>
+
+  <!-- DÉFIS -->
+  <section class="defis">
+    <div class="wrap defis-grid">
+      <div class="defis-side">
+        <span class="eyebrow fade">Diagnostic</span>
+        <h2 class="h2 split">Les étapes sont nombreuses. La préparation peut être <em>plus claire.</em></h2>
+        <p class="lead fade">Les 4 défis majeurs d’un projet d’études en Italie, transformés en étapes maîtrisées.</p>
+      </div>
+      <div>
+        <article class="defi"><div class="ph"><img src="../assets/c1-evaluation.jpg" alt="" loading="lazy" /></div><div><span class="n">01 — Évaluation initiale</span><h3>Comprendre son niveau sans biais</h3><p>Situez précisément votre niveau d’italien (A1 à B2) grâce au test de positionnement, avant de choisir votre parcours.</p><small>Test gratuit · ~10 min</small></div></article>
+        <article class="defi"><div class="ph"><img src="../assets/c2-tests.jpg" alt="" loading="lazy" /></div><div><span class="n">02 — Italien L2</span><h3>Progresser niveau par niveau</h3><p>Grammaire, vocabulaire, compréhension et expression : 39 modules de A1 à B2, avec exercices corrigés et tests à la fin de chaque niveau.</p><small>A1 · A2 · B1 · B2</small></div></article>
+        <article class="defi"><div class="ph"><img src="../assets/galerie/directeur-scene.jpg" alt="" loading="lazy" style="object-position:center 30%" /></div><div><span class="n">03 — Communication &amp; conviction</span><h3>Présenter son projet avec assurance</h3><p>Apprenez à expliciter la cohérence entre votre parcours au Congo et votre diplôme visé en Italie lors de l’entretien consulaire.</p><small>Vocal &amp; écrit</small></div></article>
+        <article class="defi"><div class="ph"><img src="../assets/c4-documents.jpg" alt="" loading="lazy" /></div><div><span class="n">04 — Conformité administrative</span><h3>Organiser et sécuriser ses documents</h3><p>Suivez rigoureusement les étapes de légalisation, Déclaration de Valeur (DoV) et pré-inscription Universitaly avec le centre de Brazzaville.</p><small>Checklist suivie avec le centre</small></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHIFFRES -->
+  <section class="numbers">
+    <div class="drawing d-stpierre" data-draw="stpierre" aria-hidden="true"></div>
+    <div class="wrap">
+      <span class="eyebrow fade">En chiffres</span>
+      <h2 class="h2 split">Un parcours <em>structuré</em>, mesurable, et honnête.</h2>
+      <div class="num-grid">
+        <div class="num fade"><b><span data-count="4">0</span></b><span>Niveaux couverts, de A1 à B2, avec un suivi à chaque étape.</span></div>
+        <div class="num fade" style="--d:.1s"><b><span data-count="39">0</span></b><span>Modules de cours : grammaire, vocabulaire, compréhension, expression.</span></div>
+        <div class="num fade" style="--d:.2s"><b><span data-count="100">0</span><sup>%</sup></b><span>Gratuit : le test de niveau, sans création de compte préalable.</span></div>
+        <div class="num fade" style="--d:.3s"><b><span data-count="10">0</span><sup>min</sup></b><span>Pour situer votre niveau et découvrir les prochaines étapes.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTRETIEN IA -->
+  <section class="ia" id="entretien">
+    <div class="wrap ia-grid">
+      <div>
+        <span class="eyebrow fade">Simulateur d’entretien IA</span>
+        <h2 class="h2 split">Répondez avec plus de <em>clarté</em>, avant le jour J.</h2>
+        <p class="lead fade">L’agent Ambassade IA vous pose une question à la fois, vous permet de répondre oralement ou par écrit, puis génère un retour pédagogique sur votre préparation.</p>
+        <ul class="checks fade">
+          <li>Entraînez-vous à exprimer votre motivation avec clarté</li>
+          <li>Conseils pédagogiques immédiats pour perfectionner votre argumentaire</li>
+          <li>Fonctionne sur smartphone, à l’écrit comme à la voix</li>
+        </ul>
+        <a href="#contact" class="pill fade">Découvrir l’entretien IA <span class="ar">→</span></a>
+        <p class="note">* Outil d’entraînement pédagogique. Il ne remplace pas les informations officielles des autorités italiennes.</p>
+      </div>
+      <div class="chat fade" id="chat">
+        <div class="chat-top"><span class="av">IA</span><div><b>Simulation consulaire</b><span>Question 2 sur 6 · Mode évaluation</span></div><span class="live">Micro actif</span></div>
+        <div class="bubbles">
+          <div class="bubble q">« Pourquoi avez-vous choisi cette formation en Italie ? »</div>
+          <div class="bubble a">« Cette formation correspond à mon parcours et à mon objectif professionnel. »</div>
+        </div>
+        <div class="report">
+          <div class="row"><div>Cohérence<b class="ok">Satisfaisante</b></div><div>Clarté<b class="warn">À renforcer</b></div></div>
+          <b>Conseil :</b> donnez un exemple concret de votre futur métier et citez une matière du programme italien qui complète vos études au Congo.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉTAPES -->
+  <section class="steps" id="etapes">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow fade">Feuille de route</span><h2 class="h2 split">De votre première évaluation à votre <em>projet préparé.</em></h2></div></div>
+      <div class="timeline" id="timeline">
+        <span class="bar" aria-hidden="true"></span>
+        <div class="step"><span class="dot">1</span><small>Diagnostic</small><h3>Évaluez votre niveau initial</h3><p>Passez un test de positionnement gratuit pour situer votre niveau d’italien de départ.</p></div>
+        <div class="step"><span class="dot">2</span><small>Entraînement</small><h3>Suivez un parcours personnalisé</h3><p>Suivez les modules de votre niveau, faites les exercices ciblés et participez aux séances de cours au centre ou en ligne.</p></div>
+        <div class="step"><span class="dot">3</span><small>Finalisation</small><h3>Validez votre niveau</h3><p>Passez les tests de fin de niveau et entraînez-vous à l’oral avec l’Agent IA pour gagner en aisance.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section class="gallery" id="galerie">
+    <div class="wrap sec-head">
+      <div><span class="eyebrow fade">Galerie</span><h2 class="h2 split">La Chiave <em>en images.</em></h2></div>
+      <a href="../galerie.html" class="pill ghost fade">Voir toute la galerie <span class="ar">→</span></a>
+    </div>
+    <div class="strip" id="strip"></div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap faq-grid">
+      <div>
+        <span class="eyebrow fade">Questions fréquentes</span>
+        <h2 class="h2 split">Vos questions, <em>nos réponses.</em></h2>
+        <p class="lead fade">Une autre question ? Écrivez-nous sur WhatsApp, l’équipe vous répond.</p>
+      </div>
+      <div>
+        <details class="qa" open><summary>Qu’est-ce que La Chiave ?<i>+</i></summary><p>La Chiave est un centre de préparation académique, linguistique et consulaire pour les candidats congolais souhaitant intégrer une université en Italie.</p></details>
+        <details class="qa"><summary>À qui s’adresse le centre ?<i>+</i></summary><p>Aux bacheliers, étudiants et professionnels préparant un départ vers une licence, un master ou souhaitant apprendre l’italien dès maintenant.</p></details>
+        <details class="qa"><summary>Le test de niveau est-il gratuit ?<i>+</i></summary><p>Oui, le test indicatif est 100 % gratuit et ne requiert aucune carte bancaire.</p></details>
+        <details class="qa"><summary>La Chiave garantit-elle l’obtention d’un visa ?<i>+</i></summary><p>Non. Seules les autorités consulaires et universitaires italiennes sont décisionnaires. La Chiave agit uniquement comme organisme de préparation pédagogique.</p></details>
+        <details class="qa"><summary>L’entretien IA fonctionne-t-il sur smartphone ?<i>+</i></summary><p>Oui, vous pouvez répondre par message écrit ou par la voix directement depuis votre navigateur mobile habituel.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPEL FINAL -->
+  <section class="final" id="contact">
+    <div class="final-box">
+      <div class="drawing d-pise" data-draw="pise" aria-hidden="true"></div>
+      <div class="drawing d-colisee" data-draw="colisee" aria-hidden="true"></div>
+      <span class="eyebrow fade">Andiamo !</span>
+      <h2 class="h2 split">La clé de votre <em>avenir</em> en Italie.</h2>
+      <p class="fade">Évaluez votre niveau, découvrez les prochaines étapes et échangez avec notre centre pour mieux préparer votre parcours vers l’Italie.</p>
+      <div class="hero-cta fade">
+        <a href="https://wa.me/242069541740" target="_blank" rel="noopener" class="pill light">Écrire sur WhatsApp <span class="ar">→</span></a>
+        <a href="tel:+242068002729" class="pill ghost">Appeler le centre</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#top" class="brand"><img src="../assets/logo.png" alt="" /><span><b>La Chiave</b><small>Centro Linguistico</small></span></a>
+        <p class="motto">Carità · Lavoro · Successo</p>
+        <p class="lead" style="font-size:15px">Préparation linguistique, académique et consulaire pour les étudiants du Congo vers l’Italie.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li class="tel"><small>Brazzaville</small><a href="tel:+242068002729">+242 06 800 27 29</a></li>
+          <li class="tel"><small>Pointe-Noire</small><a href="tel:+242061604154">+242 06 160 41 54</a></li>
+          <li class="tel"><small>WhatsApp</small><a href="https://wa.me/242069541740" target="_blank" rel="noopener">+242 06 954 17 40</a></li>
+          <li><a href="mailto:contact@lachiave.it">contact@lachiave.it</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul><li><a href="#approche">Le centre</a></li><li><a href="#preparation">Préparation</a></li><li><a href="#entretien">Entretien IA</a></li><li><a href="#etapes">Étapes</a></li><li><a href="../galerie.html">Galerie</a></li><li><a href="#faq">FAQ</a></li></ul>
+      </div>
+      <div>
+        <h4>Le centre</h4>
+        <ul><li>Brazzaville &amp; Pointe-Noire</li><li>République du Congo</li><li>Lundi – Samedi · 8h – 18h</li><li>Présentiel &amp; en ligne</li></ul>
+      </div>
+    </div>
+    <div class="giant" aria-hidden="true">La <em>Chiave</em></div>
+    <div class="legal">
+      <span>© 2026 La Chiave. Tous droits réservés.</span>
+      <span>Entraînement pédagogique indépendant · Non affilié officiellement aux services consulaires</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/site.js"></script>
+<script>
+  const reduced = LaChiave.reduced;
+
+  // Dessins des monuments (réutilisés depuis le site actuel).
+  document.querySelectorAll('[data-draw]').forEach(el => { el.innerHTML = LaChiave.EMBLEMS[el.dataset.draw](); });
+
+  // Bandeau italien défilant.
+  const WORDS = ['Benvenuti', 'Studiare in Italia', 'Ciao', 'Imparare l’italiano', 'Grazie', 'Andiamo', 'Il futuro è adesso'];
+  document.getElementById('ribbon').innerHTML = [...WORDS, ...WORDS, ...WORDS].map(w => `<span>${w}</span>`).join('');
+
+  // Cartes « Préparation » avec icônes au trait.
+  const ICON = {
+    target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/>',
+    book: '<path d="M3 5.5C5.5 4 8.5 4 12 6c3.5-2 6.5-2 9-.5V19c-2.5-1.5-5.5-1.5-9 .5-3.5-2-6.5-2-9-.5z"/><path d="M12 6v13.5"/>',
+    chat: '<path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/>',
+    mic: '<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/>',
+    chart: '<path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/>',
+    doc: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/>',
+  };
+  const CARDS = [
+    ['target', 'Évaluation initiale', 'Situez précisément votre niveau d’italien, de A1 à B2, grâce au test de positionnement.', 'Gratuit'],
+    ['book', 'Cours d’italien L2', 'Des cours complets avec dialogues, vocabulaire et grammaire, au centre ou en ligne.', 'A1 → B2'],
+    ['chart', 'Tests par niveau', 'Tests chronométrés, exercices par compétence et corrections détaillées.', '39 modules'],
+    ['chat', 'Entretien consulaire IA', 'Entraînez-vous sur des questions réalistes avec un retour pédagogique instantané.', 'Vocal & écrit'],
+    ['mic', 'Prononciation', 'Un assistant de prononciation pour écouter et répéter chaque mot.', 'Oral'],
+    ['doc', 'Suivi du dossier', 'Légalisation, Déclaration de Valeur et Universitaly, suivis étape par étape.', 'Checklist'],
+  ];
+  document.getElementById('cards').innerHTML = CARDS.map(([i, t, d, tag], k) =>
+    `<article class="card fade" style="--d:${(k % 3) * .1}s"><span class="tag">${tag}</span><span class="ic"><svg viewBox="0 0 24 24">${ICON[i]}</svg></span><div><h3>${t}</h3><p>${d}</p></div></article>`).join('');
+
+  // Bande de photos (glisser pour parcourir).
+  const SHOTS = [
+    ['visa-01.jpg', 'Visa d’études obtenu', 'Brazzaville'], ['seminaire-01.jpg', 'Séminaire d’orientation', 'Pointe-Noire · février 2026'],
+    ['equipe.jpg', 'L’équipe La Chiave', 'Le centre'], ['visa-03.jpg', 'Visa d’études obtenu', 'Brazzaville'],
+    ['depart-aeroport.jpg', 'Départ vers l’Italie', 'Juillet 2024'], ['directeur-conference.jpg', 'Intervention au séminaire', 'Pointe-Noire'],
+    ['visa-07.jpg', 'Visa d’études obtenu', 'Brazzaville'], ['seminaire-03.jpg', 'Séminaire d’orientation', 'Pointe-Noire · février 2026'],
+    ['visa-05.jpg', 'Visa d’études obtenu', 'Brazzaville'],
+  ];
+  const strip = document.getElementById('strip');
+  strip.innerHTML = SHOTS.map(([f, t, d]) => `<figure class="shot"><div class="fr"><img src="../assets/galerie/${f}" alt="${t} — ${d}" loading="lazy" /></div><figcaption><b>${t}</b>${d}</figcaption></figure>`).join('');
+  let dragX = null, startScroll = 0;
+  strip.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; dragX = e.clientX; startScroll = strip.scrollLeft; strip.classList.add('drag'); });
+  addEventListener('pointermove', e => { if (dragX !== null) strip.scrollLeft = startScroll - (e.clientX - dragX); });
+  addEventListener('pointerup', () => { dragX = null; strip.classList.remove('drag'); });
+
+  // Titres : chaque mot glisse depuis un masque.
+  document.querySelectorAll('.split').forEach(el => {
+    let k = 0;
+    const wrapWords = node => [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(part => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.append(part); return; }
+          const w = document.createElement('span'); w.className = 'w';
+          const s = document.createElement('span'); s.textContent = part; s.style.setProperty('--d', `${(k++ * .05).toFixed(2)}s`);
+          w.append(s); frag.append(w);
+        });
+        n.replaceWith(frag);
+      } else wrapWords(n);
+    });
+    wrapWords(el);
+  });
+
+  // Manifeste : les mots s'allument au fil du défilement.
+  const man = document.getElementById('manifesto');
+  man.innerHTML = man.textContent.split(/\s+/).map(w => `<span class="mute">${w}</span>`).join(' ');
+  const manWords = [...man.children];
+
+  // Compteurs.
+  function countUp(el) {
+    const end = +el.dataset.count, t0 = performance.now();
+    const tick = now => { const k = Math.min(1, (now - t0) / 1600); el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+  }
+
+  // Apparitions au défilement.
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const t = e.target;
+    t.classList.add('in');
+    t.querySelectorAll('[data-count]').forEach(countUp);
+    if (t.id === 'chat') t.querySelectorAll('.bubble, .report').forEach((b, i) => setTimeout(() => b.classList.add('in'), 400 + i * 900));
+    io.unobserve(t);
+  }), { threshold: .18, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.split, .fade, .arch, .defi').forEach(el => io.observe(el));
+  if (reduced) document.querySelectorAll('.split, .fade, .arch, .defi, .bubble, .report').forEach(el => el.classList.add('in'));
+
+  // Effets liés au défilement : en-tête, manifeste, frise des étapes, parallaxe des dessins.
+  const hdr = document.getElementById('hdr'), timeline = document.getElementById('timeline'), steps = [...timeline.querySelectorAll('.step')];
+  const drawings = [...document.querySelectorAll('.drawing')];
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  function onScroll() {
+    const vh = innerHeight;
+    hdr.classList.toggle('scrolled', scrollY > 10);
+    const mr = man.getBoundingClientRect();
+    const mp = clamp((vh * .82 - mr.top) / (mr.height + vh * .3));
+    const lit = Math.round(mp * manWords.length);
+    manWords.forEach((w, i) => w.classList.toggle('lit', i < lit));
+    const tr = timeline.getBoundingClientRect();
+    const tp = clamp((vh * .75 - tr.top) / (tr.height * .9));
+    timeline.style.setProperty('--p', tp.toFixed(3));
+    steps.forEach((s, i) => s.classList.toggle('on', tp >= i / (steps.length - 1) - .02));
+    if (!reduced) drawings.forEach(d => { const r = d.getBoundingClientRect(); d.style.transform = `translateY(${(r.top - vh / 2) * -.06}px)`; });
+  }
+  let ticking = false;
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { onScroll(); ticking = false; }); } }, { passive: true });
+  onScroll();
+
+  // Menu mobile.
+  const burger = document.querySelector('.burger'), mm = document.getElementById('mobileMenu');
+  burger.onclick = () => { const open = mm.classList.toggle('open'); burger.setAttribute('aria-expanded', open); };
+  mm.querySelectorAll('a').forEach(a => a.onclick = () => { mm.classList.remove('open'); burger.setAttribute('aria-expanded', false); });
+</script>
+</body>
+</html>
