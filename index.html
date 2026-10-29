@@ -1,0 +1,977 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>La Chiave — Centre de langue italienne · Brazzaville</title>
+<meta name="description" content="Depuis Brazzaville, La Chiave accompagne les étudiants dans leur apprentissage de l'italien et la construction de leur projet d'études en Italie." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Geist:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #0E1E1D;
+    --ink-2: #1A2928;
+    --panel: #263434;
+    --white: #FFFFFF;
+    --mint: #DCFFE4;
+    --green: #ABFFA8;
+    --sky: #DCECFF;
+    --sand: #FFE8A8;
+    --lilac: #EADFFF;
+    --peach: #FFD9A8;
+    --rose: #FFF2F2;
+    --cream: #FFF8F2;
+    --line-dark: rgba(255,255,255,.12);
+    --line-light: rgba(14,30,29,.12);
+    --muted-dark: rgba(255,255,255,.6);
+    --muted-light: rgba(14,30,29,.75);
+    --max: 1200px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: Almarai, system-ui, sans-serif; background: var(--ink); color: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  .upper { text-transform: uppercase; }
+  .light { background: var(--white); color: var(--ink); }
+  .dark { background: var(--ink); color: var(--white); }
+  .cream { background: var(--cream); color: var(--ink); }
+  h1, h2, h3 { font-weight: 400; }
+  .h2 { font-size: clamp(34px, 4.4vw, 48px); line-height: 1.2; letter-spacing: -.02em; }
+  .lead { font-size: 16px; line-height: 1.5; }
+  section { position: relative; }
+
+  /* ---------- En-tête ---------- */
+  header { position: sticky; top: 0; z-index: 50; background: var(--ink); border-bottom: 1px solid var(--line-dark); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 74px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 26px; letter-spacing: -.02em; }
+  /* Emplacement du logo : sera remplacé par l'image fournie. */
+  .logo-slot { width: 30px; height: 30px; border: 1px dashed rgba(255,255,255,.4); border-radius: 6px; display: grid; place-items: center; font-size: 9px; color: rgba(255,255,255,.5); }
+  .menu { display: flex; align-items: center; gap: 14px; font-size: 14px; }
+  .menu a { opacity: .9; transition: opacity .2s; }
+  .menu a:hover { opacity: 1; color: var(--mint); }
+  .menu .dot { opacity: .35; }
+  .btn-outline { border: 1px solid var(--line-dark); border-radius: 6px; padding: 10px 14px; font-size: 14px; text-transform: uppercase; transition: background .2s, color .2s; }
+  .btn-outline:hover { background: var(--white); color: var(--ink); }
+  .burger { display: none; width: 36px; height: 36px; border: 1px solid var(--line-dark); border-radius: 6px; background: none; color: #fff; cursor: pointer; }
+  .burger span { display: block; width: 16px; height: 2px; background: currentColor; margin: 4px auto; border-radius: 2px; }
+  .mobile-menu { display: none; border-top: 1px solid var(--line-dark); padding: 16px 24px 24px; }
+  .mobile-menu a { display: block; padding: 12px 0; text-transform: uppercase; font-size: 14px; border-bottom: 1px solid var(--line-dark); }
+  .mobile-menu.open { display: block; }
+
+  /* ---------- Hero ---------- */
+  .hero { min-height: calc(100vh - 74px); display: grid; place-items: center; overflow: hidden; padding: 140px 0; }
+  .pixels { position: absolute; inset: 0; pointer-events: none; }
+  .pixels i { position: absolute; display: block; transition: top .9s cubic-bezier(.7,0,.2,1), height .9s cubic-bezier(.7,0,.2,1); }
+  .hero-inner { position: relative; text-align: center; max-width: 780px; padding: 0 24px; }
+  .hero h1 { font-size: clamp(38px, 5.6vw, 64px); line-height: 1.12; letter-spacing: -.02em; }
+  .hero p { margin: 28px auto 40px; max-width: 600px; }
+  .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; padding: 6px 6px 6px 14px; border-radius: 4px; font-size: 16px; text-transform: uppercase; transition: transform .2s; min-width: 290px; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn .arr { width: 40px; height: 40px; border-radius: 3px; display: grid; place-items: center; transition: transform .3s; }
+  .btn:hover .arr svg { transform: rotate(45deg); }
+  .btn .arr svg { transition: transform .3s; }
+  .btn-white { background: var(--white); color: var(--ink); }
+  .btn-white .arr { background: var(--ink); color: var(--white); }
+  .btn-panel { background: var(--panel); color: var(--white); }
+  .btn-panel .arr { background: var(--white); color: var(--ink); }
+  .btn-ink { background: var(--ink); color: var(--white); }
+  .btn-ink .arr { background: var(--white); color: var(--ink); }
+
+  /* ---------- Approche (texte surligné) ---------- */
+  .approach { padding: 160px 0 120px; text-align: center; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; margin-bottom: 36px; }
+  .badge .br { color: #F08A3C; font-size: 22px; line-height: 1; }
+  .badge .tx { background: var(--mint); padding: 4px 8px; }
+  .reveal-text { font-size: clamp(30px, 4.4vw, 52px); line-height: 1.3; letter-spacing: -.02em; max-width: 1000px; margin: 0 auto; }
+  .reveal-text .w { position: relative; display: inline-block; }
+  .reveal-text .w::after { content: ""; position: absolute; inset: 4% -2px; background: var(--mint); transform-origin: right; transition: transform .55s cubic-bezier(.6,0,.2,1); transition-delay: var(--d, 0s); }
+  .reveal-text.on .w::after { transform: scaleX(0); }
+
+  /* ---------- Cartes préparation (défilement) ---------- */
+  .services { padding: 40px 0 140px; overflow: hidden; }
+  .services .h2 { text-align: center; margin-bottom: 64px; }
+  .track { display: flex; gap: 16px; width: max-content; animation: slide 60s linear infinite; }
+  .track:hover { animation-play-state: paused; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+  .svc { width: 260px; min-height: 380px; padding: 22px 20px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center; color: var(--ink); }
+  .svc h3 { font-size: 16px; text-transform: uppercase; letter-spacing: -.01em; }
+  .svc p { font-size: 14px; line-height: 1.45; color: var(--muted-light); }
+  .pix { image-rendering: pixelated; }
+
+  /* ---------- Défis (cartes « études de cas ») ---------- */
+  .works { padding: 140px 0; }
+  .works-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 56px; flex-wrap: wrap; }
+  .works-head p { max-width: 420px; color: var(--muted-dark); margin-top: 16px; }
+  .btn-mini { display: inline-flex; align-items: center; gap: 10px; background: var(--white); color: var(--ink); padding: 8px 8px 8px 14px; font-size: 14px; text-transform: uppercase; border-radius: 4px; }
+  .btn-mini .arr { background: var(--ink); color: #fff; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 3px; }
+  .case { position: sticky; top: 110px; display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; margin-bottom: 40px; overflow: hidden; color: var(--ink); }
+  .case-l { padding: 40px; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+  .case-top { display: flex; justify-content: space-between; align-items: center; }
+  .case-tag { font-size: 15px; display: flex; align-items: center; gap: 10px; }
+  .case-tag b { font-weight: 700; }
+  .case-year { border: 1px solid var(--ink); padding: 4px 10px; font-size: 14px; }
+  .case h3 { font-size: clamp(26px, 3vw, 36px); line-height: 1.15; letter-spacing: -.01em; margin-bottom: 18px; }
+  .case p { color: var(--muted-light); line-height: 1.5; max-width: 440px; }
+  .case-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 24px; }
+  .case-stats small { display: block; font-size: 13px; color: var(--muted-light); margin-bottom: 8px; }
+  .case-stats span { font-size: 22px; }
+  .case-r { position: relative; }
+  .case-r img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+  /* ---------- Chiffres ---------- */
+  .stats { padding: 120px 0 160px; }
+  .stats-head { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: end; margin-bottom: 72px; }
+  .stats-head p { color: var(--muted-dark); max-width: 360px; justify-self: end; }
+  .stats-head p, .testi-head p { color: inherit; opacity: .7; }
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; align-items: start; }
+  .stat { padding: 22px; color: var(--ink); display: flex; flex-direction: column; justify-content: space-between; min-height: 420px; will-change: transform; }
+  .stat small { font-size: 15px; text-transform: uppercase; }
+  .stat .num { font-size: clamp(56px, 7vw, 96px); letter-spacing: -.04em; line-height: 1; margin: 20px 0; }
+  .stat .num sup { font-size: .45em; vertical-align: top; margin-left: 4px; }
+  .stat p { font-size: 14px; line-height: 1.45; color: var(--muted-light); }
+
+  /* ---------- Outils (damier) ---------- */
+  .tools { padding: 140px 0; }
+  .tools .h2 { text-align: center; margin-bottom: 72px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 980px; margin: 0 auto; }
+  .tile { aspect-ratio: 1; display: grid; place-items: center; position: relative; overflow: hidden; }
+  .tile .lbl { position: absolute; bottom: 14px; left: 0; right: 0; text-align: center; font-size: 13px; text-transform: uppercase; color: var(--ink); opacity: 0; transform: translateY(8px); transition: .3s; }
+  .tile:hover .lbl { opacity: 1; transform: none; }
+  .tile svg { transition: transform .3s; }
+  .tile:hover svg { transform: scale(1.08); }
+
+  /* ---------- Simulateur IA (carrousel façon témoignages) ---------- */
+  .testi { padding: 140px 0; overflow: hidden; }
+  .testi-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 48px; flex-wrap: wrap; }
+  .testi-head p { max-width: 460px; color: var(--muted-dark); margin-top: 16px; }
+  .arrows { display: flex; gap: 8px; }
+  .arrows button { width: 40px; height: 40px; border: none; background: var(--panel); color: #fff; cursor: pointer; border-radius: 3px; font-size: 18px; transition: background .2s; }
+  .arrows button:hover { background: #3a4a4a; }
+  .slides { display: flex; gap: 24px; transition: transform .6s cubic-bezier(.6,0,.2,1); }
+  .slide { flex: 0 0 min(100%, 1100px); display: grid; grid-template-columns: 2fr 3fr; min-height: 420px; color: var(--ink); position: relative; overflow: hidden; }
+  .slide .ph { position: relative; }
+  .slide .ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .slide .q { padding: 56px 56px 40px 40px; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+  .slide blockquote { font-size: clamp(24px, 2.8vw, 36px); line-height: 1.3; letter-spacing: -.01em; }
+  .slide cite { font-style: normal; font-size: 15px; text-align: right; color: var(--muted-light); }
+  .slide .corner { position: absolute; width: 90px; height: 70px; opacity: .7; }
+  .note { font-size: 12px; font-style: italic; opacity: .6; margin-top: 24px; }
+
+  /* ---------- Avant / Après ---------- */
+  .ba-title { min-height: 70vh; display: grid; place-items: center; text-align: center; }
+  .ba-title h2 { font-size: clamp(40px, 6vw, 72px); letter-spacing: -.03em; }
+  .ba { padding: 0 0 160px; }
+  .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; max-width: 1000px; margin: 0 auto; }
+  .ba-col { padding: 40px; }
+  .ba-col.before { background: var(--ink-2); border: 1px solid var(--line-dark); }
+  .ba-col.after { background: var(--mint); color: var(--ink); }
+  .ba-col h3 { font-size: 24px; letter-spacing: .02em; margin-bottom: 10px; }
+  .ba-col > p { font-size: 14px; line-height: 1.5; opacity: .75; margin-bottom: 32px; }
+  .ba-item { display: flex; gap: 14px; padding: 18px 0; border-top: 1px solid currentColor; border-color: rgba(127,127,127,.25); }
+  .ba-item .ic { flex: 0 0 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; }
+  .before .ic { background: rgba(255,255,255,.1); }
+  .after .ic { background: var(--ink); color: var(--mint); }
+  .ba-item h4 { font-weight: 400; font-size: 17px; margin-bottom: 6px; }
+  .ba-item p { font-size: 14px; line-height: 1.45; opacity: .7; }
+
+  /* ---------- Feuille de route (façon tarifs) ---------- */
+  .plans { padding: 140px 0; }
+  .plans-head { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+  .plans-head p { color: var(--muted-light); margin-top: 20px; }
+  .plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .plan { background: var(--white); border: 1px solid var(--line-light); padding: 32px; display: flex; flex-direction: column; gap: 22px; }
+  .plan.wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .plan-top { display: flex; justify-content: space-between; align-items: center; }
+  .plan-top span:first-child { font-size: 16px; }
+  .plan-step { font-size: 13px; padding: 4px 10px; text-transform: uppercase; }
+  .plan .big { font-size: clamp(30px, 3.2vw, 40px); letter-spacing: -.02em; line-height: 1.15; }
+  .plan p { color: var(--muted-light); font-size: 15px; line-height: 1.5; }
+  .plan .btn { min-width: 0; width: 100%; }
+  .plan ul { list-style: none; display: grid; gap: 12px; font-size: 14px; }
+  .plan ul.cols { grid-template-columns: 1fr 1fr; }
+  .plan li { display: flex; gap: 10px; align-items: flex-start; }
+  .plan li::before { content: "✓"; flex: 0 0 18px; height: 18px; border: 1px solid var(--ink); border-radius: 50%; font-size: 10px; display: grid; place-items: center; }
+  .plan .inc { font-size: 13px; text-transform: uppercase; color: var(--muted-light); }
+
+  /* ---------- FAQ ---------- */
+  .faq { padding: 140px 0; }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 64px; }
+  .faq-l p { color: var(--muted-light); margin: 24px 0 40px; max-width: 360px; line-height: 1.5; }
+  .faq-help { font-size: 15px; }
+  .faq-help a { text-decoration: underline; text-underline-offset: 4px; }
+  .qa { border-bottom: 1px solid var(--line-light); }
+  .qa summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; font-size: clamp(18px, 2vw, 24px); letter-spacing: .02em; }
+  .qa summary::-webkit-details-marker { display: none; }
+  .qa summary .pm { font-size: 24px; font-weight: 300; transition: transform .3s; }
+  .qa[open] summary .pm { transform: rotate(45deg); }
+  .qa p { padding: 0 0 24px; color: var(--muted-light); line-height: 1.55; max-width: 620px; }
+  .hl { background: var(--peach); padding: 0 6px; }
+
+  /* ---------- CTA final ---------- */
+  .final { padding: 0; }
+  .final-box { position: relative; background: var(--mint); color: var(--ink); text-align: center; padding: 140px 24px; overflow: hidden; }
+  .final-box h2 { position: relative; font-size: clamp(32px, 4.6vw, 56px); letter-spacing: -.02em; line-height: 1.15; max-width: 900px; margin: 0 auto 20px; }
+  .final-box p { position: relative; max-width: 560px; margin: 0 auto 40px; color: var(--muted-light); }
+  .final-box .cta-row { position: relative; }
+
+  /* ---------- Pied de page ---------- */
+  footer { position: relative; padding: 96px 0 0; overflow: hidden; }
+  .foot-pixels { top: auto; height: 50%; }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 72px; border-bottom: 1px solid var(--line-dark); }
+  .foot-lbl { color: var(--mint); font-weight: 300; font-size: 14px; margin-bottom: 14px; display: block; }
+  .foot-big { font-family: Geist, sans-serif; font-size: clamp(20px, 2.2vw, 28px); display: block; margin-bottom: 32px; word-break: break-word; }
+  .foot-grid ul { list-style: none; display: grid; gap: 14px; font-size: 15px; }
+  .foot-grid ul a:hover { color: var(--mint); }
+  .foot-bottom { display: flex; justify-content: space-between; gap: 16px; padding: 28px 0; font-size: 13px; color: var(--muted-dark); flex-wrap: wrap; }
+  .giant { font-size: clamp(80px, 19vw, 280px); letter-spacing: -.05em; line-height: .8; text-align: center; color: rgba(255,255,255,.06); white-space: nowrap; padding-bottom: 10px; user-select: none; }
+
+  /* ---------- Apparition au défilement ---------- */
+  .rv { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .rv.on { opacity: 1; transform: none; }
+
+  /* ---------- Préchargeur : pavés verts qui se dissolvent ---------- */
+  body.loading { overflow: hidden; }
+  #loader { position: fixed; inset: 0; z-index: 100; display: grid; grid-template-columns: repeat(var(--c), 1fr); grid-template-rows: repeat(var(--r), 1fr); }
+  #loader i { background: #ABFFA8; outline: 1px solid rgba(14,30,29,.05); transition: opacity .2s steps(2) var(--d); }
+  #loader .name { grid-area: 1 / 1 / -1 / -1; z-index: 1; display: grid; place-items: center; font-size: 22px; letter-spacing: -.01em; color: var(--ink); transition: opacity .35s; }
+  #loader.out .name, #loader.out i { opacity: 0; }
+
+  /* ---------- Dévoilement des titres : bande sombre puis bande menthe ---------- */
+  .light { --wipe: var(--ink); }
+  .dark { --wipe: var(--panel); }
+  .ln { position: relative; display: block; width: fit-content; }
+  .ln > .wa, .ln > .wb { position: absolute; inset: 0 -4px; transform-origin: right; pointer-events: none; }
+  .ln > .wb { background: var(--mint); }
+  .ln > .wa { background: var(--wipe, var(--panel)); }
+  [data-wipe].on .wa { transform: scaleX(0); transition: transform .65s cubic-bezier(.7,0,.2,1) var(--d); }
+  [data-wipe].on .wb { transform: scaleX(0); transition: transform .65s cubic-bezier(.7,0,.2,1) calc(var(--d) + .18s); }
+
+  /* Clé pixel flottante sous le texte d'approche */
+  .float-key { display: grid; place-items: center; margin-top: 56px; }
+  .float-key svg { animation: bob 5s ease-in-out infinite; filter: drop-shadow(0 18px 18px rgba(14,30,29,.12)); }
+  @keyframes bob { 0%, 100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-14px) rotate(4deg); } }
+
+  /* Bandeau défilant sous les chiffres */
+  .ticker { overflow: hidden; margin-top: 64px; }
+  .ticker-track { display: flex; gap: 56px; width: max-content; animation: slide 40s linear infinite; font-size: 15px; text-transform: uppercase; opacity: .7; white-space: nowrap; }
+
+  /* ---------- Avant / Après épinglé ---------- */
+  .ba-pin { height: 280vh; }
+  .ba-sticky { position: sticky; top: 74px; height: calc(100vh - 74px); overflow: hidden; display: grid; place-items: center; }
+  .ba-words { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: var(--gap, 18px); font-size: var(--fs, 56px); letter-spacing: -.03em; white-space: nowrap; color: rgba(255,255,255,var(--o, 1)); pointer-events: none; }
+  .ba-cards { position: relative; width: 100%; transform: translateY(var(--ty, 100vh)); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 960px) {
+    .menu { display: none; }
+    .burger { display: block; }
+    .case, .slide { grid-template-columns: 1fr; position: relative; top: 0; }
+    .case-r, .slide .ph { min-height: 260px; }
+    .stats-head { grid-template-columns: 1fr; }
+    .stats-head p { justify-self: start; }
+    .stat-row { grid-template-columns: 1fr 1fr; }
+    .stat:nth-child(n) { min-height: 300px; }
+    .faq-grid, .ba-grid, .plan-grid, .plan.wide { grid-template-columns: 1fr; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .ba-pin { height: auto; }
+    .ba-sticky { position: static; height: auto; display: block; padding: 80px 0 120px; }
+    .ba-words { position: static; margin-bottom: 48px; --fs: 44px; }
+    .ba-cards { transform: none; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 16px; }
+    .brand { font-size: 21px; white-space: nowrap; }
+    .btn-outline { font-size: 12px; padding: 9px 10px; white-space: nowrap; }
+    .hero { padding: 110px 0; }
+    .btn { min-width: 0; width: 100%; }
+    .cta-row { flex-direction: column; }
+    .case-l, .ba-col, .plan { padding: 24px; }
+    .slide .q { padding: 28px 24px; }
+    .stat-row { grid-template-columns: 1fr; }
+    .grid4 { grid-template-columns: repeat(2, 1fr); }
+    .plan ul.cols { grid-template-columns: 1fr; }
+    .foot-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .track, .ticker-track, .float-key svg { animation: none; }
+    .ln > .wa, .ln > .wb { display: none; }
+    .rv { opacity: 1; transform: none; }
+    .reveal-text .w::after { display: none; }
+  }
+</style>
+</head>
+<body class="loading">
+<div id="loader" aria-hidden="true"><span class="name">La Chiave</span></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <span class="logo-slot" title="Logo à venir">logo</span>
+      <span>La Chiave</span>
+    </a>
+    <nav class="menu upper">
+      <a href="#approche">Le centre</a><span class="dot">·</span>
+      <a href="#preparation">Préparation</a><span class="dot">·</span>
+      <a href="#entretien">Entretien IA</a><span class="dot">·</span>
+      <a href="#etapes">Étapes</a><span class="dot">·</span>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div style="display:flex;gap:8px;align-items:center">
+      <a href="#contact" class="btn-outline">Nous contacter</a>
+      <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#approche">Le centre</a>
+    <a href="#preparation">Préparation</a>
+    <a href="#entretien">Entretien IA</a>
+    <a href="#etapes">Étapes</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero dark">
+    <div class="pixels" id="heroPixels" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <h1 data-wipe="load">Votre avenir en Italie<br />commence par une bonne préparation</h1>
+      <p class="lead rv">Depuis Brazzaville, La Chiave accompagne les étudiants et les apprenants dans leur apprentissage de l’italien et dans la construction de leur projet d’études en Italie.</p>
+      <div class="cta-row rv">
+        <a href="#contact" class="btn btn-white"><span>Évaluer mon niveau</span><span class="arr"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11L11 3M5 3h6v6"/></svg></span></a>
+        <a href="#approche" class="btn btn-panel"><span>Découvrir le centre</span><span class="arr"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11L11 3M5 3h6v6"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROCHE -->
+  <section class="approach light" id="approche">
+    <div class="wrap">
+      <div class="badge"><span class="br">[</span><span class="tx upper">Notre approche</span><span class="br">]</span></div>
+      <p class="reveal-text" data-wipe="scroll">La Chiave aide chaque apprenant à préparer son projet d’études en Italie avec méthode : un centre présent à Brazzaville, un enseignement exigeant de l’italien de A1 à B2, et un parcours suivi étape par étape.</p>
+      <div class="float-key" id="floatKey" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- PRÉPARATION -->
+  <section class="services light" id="preparation">
+    <h2 class="h2" data-wipe>Tout ce qu’il faut pour<br />préparer l’Italie</h2>
+    <div class="track" id="track"></div>
+  </section>
+
+  <!-- DÉFIS -->
+  <section class="works dark">
+    <div class="wrap">
+      <div class="works-head">
+        <div>
+          <h2 class="h2" data-wipe>Les 4 défis</h2>
+          <p class="rv">Les étapes sont nombreuses. La préparation peut être plus claire : voici les 4 défis majeurs transformés en étapes maîtrisées.</p>
+        </div>
+        <a href="#etapes" class="btn-mini">Voir les étapes <span class="arr">↗</span></a>
+      </div>
+
+      <article class="case" style="background:var(--sky)">
+        <div class="case-l">
+          <div>
+            <div class="case-top" style="margin-bottom:28px"><span class="case-tag"><b>01</b> Évaluation initiale</span><span class="case-year">A1 → B2</span></div>
+            <h3>Comprendre son niveau sans biais</h3>
+            <p>Situez précisément votre niveau d’italien (A1 à B2) grâce au test de positionnement, avant de choisir votre parcours.</p>
+          </div>
+          <div class="case-stats">
+            <div><small>Durée du test</small><span>~10 min</span></div>
+            <div><small>Coût</small><span>Gratuit</span></div>
+          </div>
+        </div>
+        <div class="case-r"><img src="assets/c1-evaluation.jpg" alt="Évaluation du niveau d'italien" loading="lazy" /></div>
+      </article>
+
+      <article class="case" style="background:var(--sand)">
+        <div class="case-l">
+          <div>
+            <div class="case-top" style="margin-bottom:28px"><span class="case-tag"><b>02</b> Italien L2</span><span class="case-year">39 modules</span></div>
+            <h3>Progresser niveau par niveau</h3>
+            <p>Grammaire, vocabulaire, compréhension et expression : 39 modules de A1 à B2, avec exercices corrigés et tests à la fin de chaque niveau.</p>
+          </div>
+          <div class="case-stats">
+            <div><small>Niveaux</small><span>A1 · A2 · B1 · B2</span></div>
+            <div><small>Évaluation</small><span>Fin de niveau</span></div>
+          </div>
+        </div>
+        <div class="case-r"><img src="assets/c2-tests.jpg" alt="Cours et tests d'italien" loading="lazy" /></div>
+      </article>
+
+      <article class="case" style="background:var(--lilac)">
+        <div class="case-l">
+          <div>
+            <div class="case-top" style="margin-bottom:28px"><span class="case-tag"><b>03</b> Communication &amp; conviction</span><span class="case-year">Entretien</span></div>
+            <h3>Présenter son projet avec assurance</h3>
+            <p>Apprenez à expliciter la cohérence entre votre parcours au Congo et votre diplôme visé en Italie lors de l’entretien consulaire.</p>
+          </div>
+          <div class="case-stats">
+            <div><small>Format</small><span>Vocal &amp; écrit</span></div>
+            <div><small>Retour</small><span>Instantané</span></div>
+          </div>
+        </div>
+        <div class="case-r"><img src="assets/c3-entretien.jpg" alt="Entraînement à l'entretien" loading="lazy" /></div>
+      </article>
+
+      <article class="case" style="background:var(--green)">
+        <div class="case-l">
+          <div>
+            <div class="case-top" style="margin-bottom:28px"><span class="case-tag"><b>04</b> Conformité administrative</span><span class="case-year">Dossier</span></div>
+            <h3>Organiser et sécuriser ses documents</h3>
+            <p>Suivez rigoureusement les étapes de légalisation, Déclaration de Valeur (DoV) et pré-inscription Universitaly avec le centre de Brazzaville.</p>
+          </div>
+          <div class="case-stats">
+            <div><small>Suivi</small><span>Checklist</span></div>
+            <div><small>Avec</small><span>Le centre</span></div>
+          </div>
+        </div>
+        <div class="case-r"><img src="assets/c4-documents.jpg" alt="Organisation des documents" loading="lazy" /></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CHIFFRES -->
+  <section class="stats dark" data-tone="dark-light">
+    <div class="wrap">
+      <div class="stats-head">
+        <h2 class="h2" data-wipe>Pourquoi nous faire confiance</h2>
+        <p class="rv">Un enseignement exigeant et honnête de l’italien langue seconde (L2), de A1 à B2, sans fausses promesses.</p>
+      </div>
+      <div class="stat-row rv">
+        <div class="stat" style="background:var(--cream)"><small>Niveaux couverts</small><div class="num" data-count="4">0</div><p>Un parcours structuré de A1 à B2, où chaque étape est suivie pour avancer sereinement.</p></div>
+        <div class="stat" style="background:var(--mint)"><small>Modules de cours</small><div class="num" data-count="39">0</div><p>Grammaire, vocabulaire, compréhension et expression, avec exercices corrigés.</p></div>
+        <div class="stat" style="background:var(--sky)"><small>Test de niveau</small><div class="num"><span data-count="100">0</span><sup>%</sup></div><p>Gratuit, sans création de compte préalable et accessible sur smartphone.</p></div>
+        <div class="stat" style="background:var(--lilac)"><small>Durée du test</small><div class="num"><span data-count="10">0</span><sup>min</sup></div><p>Environ 10 minutes pour situer votre niveau et découvrir les prochaines étapes.</p></div>
+      </div>
+    </div>
+    <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+  </section>
+
+  <!-- OUTILS -->
+  <section class="tools light">
+    <h2 class="h2" data-wipe>Nos outils<br />de préparation</h2>
+    <div class="wrap"><div class="grid4" id="toolGrid"></div></div>
+  </section>
+
+  <!-- SIMULATEUR IA -->
+  <section class="testi light" id="entretien" data-tone="light-dark">
+    <div class="wrap">
+      <div class="testi-head">
+        <div>
+          <h2 class="h2" data-wipe>Simulateur d’entretien IA</h2>
+          <p class="rv">L’agent Ambassade IA vous pose une question à la fois, vous permet de répondre oralement ou par écrit, puis génère un retour pédagogique sur votre préparation.</p>
+        </div>
+        <div class="arrows"><button id="prev" aria-label="Précédent">←</button><button id="next" aria-label="Suivant">→</button></div>
+      </div>
+      <div class="slides" id="slides">
+        <div class="slide" style="background:var(--sky)">
+          <div class="ph"><img src="assets/m-ai.jpg" alt="" loading="lazy" /></div>
+          <div class="q">
+            <blockquote>« Pourquoi avez-vous choisi cette formation en Italie ? »</blockquote>
+            <cite>— Agent Ambassade IA · Question 2 sur 6</cite>
+          </div>
+        </div>
+        <div class="slide" style="background:var(--mint)">
+          <div class="ph"><img src="assets/c3-entretien.jpg" alt="" loading="lazy" /></div>
+          <div class="q">
+            <blockquote>« Cette formation correspond à mon parcours et à mon objectif professionnel. »</blockquote>
+            <cite>— Votre réponse, à l’oral ou à l’écrit</cite>
+          </div>
+        </div>
+        <div class="slide" style="background:var(--sand)">
+          <div class="ph"><img src="assets/m-study.jpg" alt="" loading="lazy" /></div>
+          <div class="q">
+            <blockquote>« Donnez un exemple concret de votre futur métier et citez une matière du programme italien qui complète vos études au Congo. »</blockquote>
+            <cite>— Rapport pédagogique · Cohérence : satisfaisante · Clarté : à renforcer</cite>
+          </div>
+        </div>
+      </div>
+      <p class="note">* Outil d’entraînement pédagogique. Il ne remplace pas les informations officielles des autorités italiennes.</p>
+    </div>
+  </section>
+
+  <!-- AVANT / APRÈS -->
+  <section class="ba-pin dark" id="avantApres">
+    <div class="ba-sticky">
+      <h2 class="ba-words" aria-label="Avant vs Après"><span>Avant</span><span>vs</span><span>Après</span></h2>
+    <div class="wrap ba-cards">
+      <div class="ba-grid">
+        <div class="ba-col before">
+          <h3>Sans préparation</h3>
+          <p>Partir étudier en Italie est un projet. Les étapes sont nombreuses.</p>
+          <div class="ba-item"><span class="ic">✕</span><div><h4>Niveau incertain</h4><p>Difficile de savoir par où commencer sans connaître son niveau réel d’italien.</p></div></div>
+          <div class="ba-item"><span class="ic">✕</span><div><h4>Projet difficile à expliquer</h4><p>La cohérence entre le parcours au Congo et le diplôme visé reste floue.</p></div></div>
+          <div class="ba-item"><span class="ic">✕</span><div><h4>Dossier dispersé</h4><p>Légalisation, DoV et Universitaly : des démarches faciles à mal organiser.</p></div></div>
+        </div>
+        <div class="ba-col after">
+          <h3>Avec La Chiave</h3>
+          <p>Nous vous aidons à le préparer avec méthode.</p>
+          <div class="ba-item"><span class="ic">✓</span><div><h4>Niveau situé et validé</h4><p>Test de positionnement, puis tests de fin de niveau de A1 à B2.</p></div></div>
+          <div class="ba-item"><span class="ic">✓</span><div><h4>Projet présenté avec assurance</h4><p>Entraînement à l’entretien avec l’Agent IA pour gagner en aisance.</p></div></div>
+          <div class="ba-item"><span class="ic">✓</span><div><h4>Documents suivis</h4><p>Une checklist et des échéances suivies avec le centre de Brazzaville.</p></div></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- FEUILLE DE ROUTE -->
+  <section class="plans cream" id="etapes">
+    <div class="wrap">
+      <div class="plans-head">
+        <h2 class="h2" data-wipe>De votre première évaluation<br />à votre projet préparé</h2>
+        <p class="rv">Un parcours progressif pensé pour les étudiants du Congo vers l’Italie.</p>
+      </div>
+      <div class="plan-grid">
+        <div class="plan rv">
+          <div class="plan-top"><span>Diagnostic</span><span class="plan-step" style="background:var(--sky)">Étape 1</span></div>
+          <div class="big">Évaluez votre niveau initial</div>
+          <p>Passez un test de positionnement gratuit pour situer votre niveau d’italien de départ.</p>
+          <a href="#contact" class="btn btn-ink"><span>Faire le test gratuitement</span><span class="arr">↗</span></a>
+          <span class="inc">Inclus :</span>
+          <ul><li>Environ 10 minutes</li><li>Sans création de compte préalable</li><li>100 % accessible sur smartphone</li><li>Résultats indicatifs immédiats</li></ul>
+        </div>
+        <div class="plan rv">
+          <div class="plan-top"><span>Entraînement</span><span class="plan-step" style="background:var(--mint)">Étape 2</span></div>
+          <div class="big">Suivez un parcours personnalisé</div>
+          <p>Suivez les modules de votre niveau, faites les exercices ciblés et participez aux séances de cours au centre de Brazzaville ou en ligne.</p>
+          <a href="#contact" class="btn btn-ink"><span>Contacter le centre</span><span class="arr">↗</span></a>
+          <span class="inc">Inclus :</span>
+          <ul><li>Cours d’italien L2, de A1 à B2</li><li>Dialogues, vocabulaire et grammaire</li><li>Assistant de prononciation</li><li>Cours en présentiel ou en ligne</li></ul>
+        </div>
+        <div class="plan wide rv">
+          <div style="display:flex;flex-direction:column;gap:22px">
+            <div class="plan-top"><span>Finalisation</span><span class="plan-step" style="background:var(--peach)">Étape 3</span></div>
+            <div class="big">Validez votre niveau</div>
+            <p>Passez les tests de fin de niveau et entraînez-vous à l’oral avec l’Agent IA pour gagner en aisance.</p>
+            <a href="#contact" class="btn btn-ink"><span>Commencer mon projet</span><span class="arr">↗</span></a>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:18px">
+            <span class="inc">Inclus :</span>
+            <ul class="cols">
+              <li>Tests chronométrés par niveau</li><li>Corrections détaillées</li>
+              <li>Entretien consulaire IA</li><li>Retour pédagogique instantané</li>
+              <li>Suivi du projet</li><li>Archivage des documents</li>
+              <li>Échéances suivies en direct</li><li>Visibilité partagée avec le centre</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq cream" id="faq" style="background:#F6F3EE">
+    <div class="wrap faq-grid">
+      <div class="faq-l">
+        <h2 class="h2 rv">Questions <span class="hl">fréquentes</span></h2>
+        <p>Retrouvez les réponses aux questions les plus courantes sur La Chiave et la préparation de votre projet.</p>
+        <div class="faq-help">Une autre question ?<br /><a href="#contact">Contactez le centre.</a></div>
+      </div>
+      <div>
+        <details class="qa" open><summary>Qu’est-ce que La Chiave ?<span class="pm">+</span></summary><p>La Chiave est une plateforme de préparation académique, linguistique et consulaire pour les candidats congolais souhaitant intégrer une université en Italie.</p></details>
+        <details class="qa"><summary>À qui s’adresse la plateforme ?<span class="pm">+</span></summary><p>Aux bacheliers, étudiants et professionnels préparant un départ vers une licence, un master ou souhaitant apprendre l’italien dès maintenant.</p></details>
+        <details class="qa"><summary>Le test de niveau est-il gratuit ?<span class="pm">+</span></summary><p>Oui, le test indicatif est 100 % gratuit et ne requiert aucune carte bancaire.</p></details>
+        <details class="qa"><summary>La Chiave garantit-elle l’obtention d’un visa ?<span class="pm">+</span></summary><p>Non. Seules les autorités consulaires et universitaires italiennes sont décisionnaires. La Chiave agit uniquement comme organisme de préparation pédagogique.</p></details>
+        <details class="qa"><summary>L’entretien IA fonctionne-t-il sur smartphone ?<span class="pm">+</span></summary><p>Oui, vous pouvez répondre par message écrit ou par la voix directement depuis votre navigateur mobile habituel.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="final" id="contact">
+    <div class="final-box">
+      <div class="pixels" id="ctaPixels" aria-hidden="true"></div>
+      <h2 data-wipe>Commencez votre projet avec une équipe qui vous accompagne depuis Brazzaville</h2>
+      <p class="rv">Évaluez votre niveau, découvrez les prochaines étapes et échangez avec notre centre pour mieux préparer votre parcours vers l’Italie.</p>
+      <div class="cta-row rv">
+        <a href="https://wa.me/242066733974" target="_blank" rel="noopener" class="btn btn-ink"><span>Contacter sur WhatsApp</span><span class="arr">↗</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="dark">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="foot-lbl">{EMAIL}</span>
+        <a class="foot-big" href="mailto:contact@lachiave.it">contact@lachiave.it</a>
+        <span class="foot-lbl">{TÉLÉPHONE}</span>
+        <a class="foot-big" href="tel:+242066733974">+242 06 673 3974</a>
+      </div>
+      <div>
+        <span class="foot-lbl">{NAVIGATION}</span>
+        <ul><li><a href="#approche">Le centre</a></li><li><a href="#preparation">Préparation</a></li><li><a href="#entretien">Entretien IA</a></li><li><a href="#etapes">Étapes</a></li><li><a href="#faq">FAQ</a></li></ul>
+      </div>
+      <div>
+        <span class="foot-lbl">{CENTRE}</span>
+        <ul><li>Brazzaville, République du Congo</li><li>Lundi – Samedi · 8h – 18h</li><li>Présentiel &amp; en ligne</li></ul>
+      </div>
+      <div>
+        <span class="foot-lbl">{SUIVEZ-NOUS}</span>
+        <ul><li><a href="https://wa.me/242066733974" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:contact@lachiave.it">Email</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 La Chiave. Tous droits réservés.</span>
+      <span>Entraînement pédagogique indépendant · Non affilié officiellement aux services consulaires</span>
+    </div>
+  </div>
+  <div class="giant" aria-hidden="true">La Chiave</div>
+  <div class="pixels foot-pixels" id="footPixels" aria-hidden="true"></div>
+</footer>
+
+<script>
+  // Pavés pixel pastel (hero et CTA), disposés sur une grille de 40px.
+  const PASTELS = ['#DCECFF', '#FFE8A8', '#EADFFF', '#ABFFA8', '#DCFFE4', '#FFD9A8'];
+  function scatter(el, zones, count) {
+    if (!el) return;
+    const cell = 20;
+    const cols = Math.ceil(el.offsetWidth / cell), rows = Math.ceil(el.offsetHeight / cell);
+    let html = '';
+    for (let n = 0; n < count; n++) {
+      const zone = zones[Math.floor(Math.random() * zones.length)];
+      // Sur les côtés : barres verticales étroites ; en haut/bas : pavés horizontaux.
+      const side = zone === 'side';
+      const w = side ? 1 + Math.floor(Math.random() * 2) : 2 + Math.floor(Math.random() * 5);
+      const h = side ? 3 + Math.floor(Math.random() * 7) : 1 + Math.floor(Math.random() * 2);
+      let c, r;
+      if (zone === 'top') { c = Math.floor(Math.random() * cols); r = Math.floor(Math.random() * 4); }
+      else if (zone === 'bottom') { c = Math.floor(Math.random() * cols); r = rows - h - Math.floor(Math.random() * 4); }
+      else { const band = Math.floor(cols * .18); c = Math.random() < .5 ? Math.floor(Math.random() * band) : cols - 1 - Math.floor(Math.random() * band); r = Math.floor(Math.random() * (rows - h)); }
+      const color = PASTELS[Math.floor(Math.random() * PASTELS.length)];
+      html += `<i data-zone="${zone}" data-h="${h}" style="left:${c * cell}px;top:${r * cell}px;width:${w * cell}px;height:${h * cell}px;background:${color}"></i>`;
+    }
+    el.innerHTML = html;
+  }
+  // Les barres glissent verticalement vers une nouvelle case de la grille, quelques-unes à la fois.
+  function shuffle(el) {
+    if (!el || !el.children.length) return;
+    const cell = 20, rows = Math.ceil(el.offsetHeight / cell);
+    [...el.children].forEach(i => {
+      if (Math.random() > .35) return;
+      const zone = i.dataset.zone, h = +i.dataset.h;
+      let r;
+      if (zone === 'side') r = Math.floor(Math.random() * (rows - h));
+      else if (zone === 'top') r = Math.floor(Math.random() * 4);
+      else r = rows - h - Math.floor(Math.random() * 4);
+      i.style.top = `${r * cell}px`;
+    });
+  }
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function layoutPixels() {
+    const wide = innerWidth > 960;
+    scatter(document.getElementById('heroPixels'), wide ? ['top', 'bottom', 'side', 'side'] : ['top', 'bottom'], wide ? 30 : 14);
+    scatter(document.getElementById('footPixels'), ['bottom'], wide ? 18 : 8);
+    scatter(document.getElementById('ctaPixels'), ['top', 'bottom'], wide ? 26 : 12);
+    document.querySelectorAll('#ctaPixels i').forEach(i => i.style.background = '#0E1E1D');
+  }
+  layoutPixels();
+  if (!reduced) setInterval(() => ['heroPixels', 'footPixels'].forEach(id => shuffle(document.getElementById(id))), 1100);
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(layoutPixels, 200); });
+
+  // Icônes pixel : chaque lettre de la carte = une couleur (« . » = vide).
+  function pixelIcon(map, palette, size) {
+    const rows = map.trim().split('\n').map(r => r.trim());
+    const n = rows[0].length, u = size / n;
+    let rects = '';
+    rows.forEach((row, y) => [...row].forEach((ch, x) => {
+      if (ch !== '.') rects += `<rect x="${x * u}" y="${y * u}" width="${u + .3}" height="${u + .3}" fill="${palette[ch]}"/>`;
+    }));
+    return `<svg class="pix" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-hidden="true">${rects}</svg>`;
+  }
+  const ICONS = {
+    key: `
+      ............
+      .aaaa.......
+      abbbba......
+      ab..ba......
+      ab..baaaaaaa
+      abbbbabbbbbb
+      .aaaa..a.a.a
+      .......a.a..
+      ............
+      ............
+      ............
+      ............`,
+    book: `
+      ............
+      .aaaaa.aaaaa
+      .abbbbabbbba
+      .abccbabccba
+      .abbbbabbbba
+      .abccbabccba
+      .abbbbabbbba
+      .abccbabccba
+      .abbbbabbbba
+      .aaaaaaaaaaa
+      ......a.....
+      ............`,
+    target: `
+      ............
+      ....aaaa....
+      ..aabbbbaa..
+      .abbaaaabba.
+      .abaccccaba.
+      abacaaaacaba
+      abacaddacaba
+      abacaaaacaba
+      .abaccccaba.
+      .abbaaaabba.
+      ..aabbbbaa..
+      ....aaaa....`,
+    chat: `
+      ............
+      .aaaaaaaaaa.
+      abbbbbbbbbba
+      abccbccbccba
+      abbbbbbbbbba
+      abccccccbbba
+      abbbbbbbbbba
+      .aaaaabaaaa.
+      .....aba....
+      ......aa....
+      ............
+      ............`,
+    list: `
+      ............
+      .aaaaaaaaaa.
+      .abbbbbbbba.
+      .abcbddddba.
+      .abbbbbbbba.
+      .abcbddddba.
+      .abbbbbbbba.
+      .abcbddddba.
+      .abbbbbbbba.
+      .abcbddbbba.
+      .abbbbbbbba.
+      .aaaaaaaaaa.`,
+    mic: `
+      ....aaaa....
+      ...abbbba...
+      ...abccba...
+      ...abbbba...
+      ...abccba...
+      .a.abbbba.a.
+      .a.abbbba.a.
+      .aa.aaaa.aa.
+      ..aa....aa..
+      ....aaaa....
+      .....aa.....
+      ...aaaaaa...`,
+    chart: `
+      ............
+      a...........
+      a.........bb
+      a.........bb
+      a......cc.bb
+      a......cc.bb
+      a...dd.cc.bb
+      a...dd.cc.bb
+      a.e.dd.cc.bb
+      a.e.dd.cc.bb
+      aaaaaaaaaaaa
+      ............`,
+    doc: `
+      ............
+      ..aaaaaa....
+      ..abbbbaa...
+      ..abbbbaba..
+      ..abbbbaaaa.
+      ..abccccbba.
+      ..abbbbbbba.
+      ..abccccbba.
+      ..abbbbbbba.
+      ..abcccbbba.
+      ..abbbbbbba.
+      ..aaaaaaaaa.`
+  };
+  const P = (a, b, c, d, e) => ({ a, b, c: c || a, d: d || a, e: e || a });
+
+  // Cartes « Préparation » (dupliquées pour une boucle continue).
+  const SERVICES = [
+    { t: 'Évaluation initiale', d: 'Situez précisément votre niveau d’italien (A1 à B2) grâce au test de positionnement.', bg: '#F3F1FF', i: 'target', p: P('#5B4BB7', '#B8A9FF', '#5B4BB7', '#E85D75') },
+    { t: 'Tests par niveau', d: 'Tests chronométrés, exercices par compétence et corrections détaillées pour valider chaque niveau.', bg: '#FFF8F2', i: 'chart', p: P('#0E1E1D', '#F08A3C', '#F5B544', '#7FC97F', '#5B8DEF') },
+    { t: 'Entretien consulaire IA', d: 'Entraînez-vous à répondre à des questions réalistes avec retour pédagogique instantané.', bg: '#F1FAFF', i: 'chat', p: P('#2C6FBF', '#B0E3FF', '#2C6FBF') },
+    { t: 'Cours d’italien L2', d: 'Des cours complets avec dialogues, vocabulaire et grammaire, de A1 à B2.', bg: '#FEF2FF', i: 'book', p: P('#8A3FA0', '#F3C4FF', '#8A3FA0') },
+    { t: 'Prononciation', d: 'Un assistant de prononciation pour écouter et répéter chaque mot.', bg: '#F6FFF1', i: 'mic', p: P('#2F8A3A', '#8CFFA7', '#2F8A3A') },
+    { t: 'Suivi du projet', d: 'Visualisez vos progrès et suivez les échéances avec nos conseillers.', bg: '#FFF2F2', i: 'list', p: P('#B5413A', '#FFFFFF', '#2F8A3A', '#E8A39E') },
+    { t: 'Documents', d: 'Légalisation, Déclaration de Valeur (DoV) et pré-inscription Universitaly, étape par étape.', bg: '#FFF1DF', i: 'doc', p: P('#A8661A', '#FFFFFF', '#FFD9A8') },
+  ];
+  const card = s => `<div class="svc" style="background:${s.bg}"><h3>${s.t}</h3>${pixelIcon(ICONS[s.i], s.p, 150)}<p>${s.d}</p></div>`;
+  document.getElementById('track').innerHTML = [...SERVICES, ...SERVICES].map(card).join('');
+
+  // Damier « Outils » : cases colorées en alternance avec des cases blanches.
+  const TOOLS = [
+    { l: 'Cours L2', i: 'book', bg: '#FFE4E1', p: P('#0E1E1D', '#FFFFFF', '#0E1E1D') }, null,
+    { l: 'Tests', i: 'chart', bg: '#E6FFDC', p: P('#0E1E1D', '#0E1E1D', '#0E1E1D', '#0E1E1D', '#0E1E1D') }, null,
+    null, { l: 'Entretien IA', i: 'chat', bg: '#FCE4FF', p: P('#0E1E1D', '#FFFFFF', '#0E1E1D') },
+    null, { l: 'Prononciation', i: 'mic', bg: '#FFEBD6', p: P('#0E1E1D', '#FFFFFF', '#0E1E1D') },
+    { l: 'Positionnement', i: 'target', bg: '#DFF1FF', p: P('#0E1E1D', '#FFFFFF', '#0E1E1D', '#0E1E1D') }, null,
+    { l: 'La clé', i: 'key', bg: '#E8E3FF', p: P('#0E1E1D', '#FFFFFF') }, null,
+  ];
+  document.getElementById('toolGrid').innerHTML = TOOLS.map(t => t
+    ? `<div class="tile" style="background:${t.bg}">${pixelIcon(ICONS[t.i], t.p, 72)}<span class="lbl">${t.l}</span></div>`
+    : `<div class="tile"></div>`).join('');
+
+  // Clé pixel flottante et bandeau défilant.
+  document.getElementById('floatKey').innerHTML = pixelIcon(ICONS.key, P('#2F8A3A', '#ABFFA8'), 220);
+  const TICKER = ['Italien L2', 'Brazzaville', 'A1 → B2', 'Universitaly', 'Déclaration de Valeur', 'Entretien consulaire', 'Présentiel & en ligne'];
+  document.getElementById('ticker').innerHTML = [...TICKER, ...TICKER, ...TICKER, ...TICKER].map(t => `<span>${t}</span>`).join('');
+
+  // Découpe un titre en lignes réelles, chacune recouverte d'une bande sombre et d'une bande menthe.
+  const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  function splitLines(el) {
+    if (!el.dataset.src) el.dataset.src = el.innerHTML;
+    const words = [];
+    el.dataset.src.split(/<br\s*\/?>/i).forEach((seg, s) => {
+      const tmp = document.createElement('div'); tmp.innerHTML = seg;
+      tmp.textContent.trim().split(/\s+/).filter(Boolean).forEach((w, k) => words.push({ w, brk: s > 0 && k === 0 }));
+    });
+    el.innerHTML = words.map(o => (o.brk ? '<br>' : '') + `<span class="wd">${esc(o.w)}</span>`).join(' ');
+    const lines = [];
+    let top = null;
+    el.querySelectorAll('.wd').forEach(sp => {
+      if (sp.offsetTop !== top) { lines.push([]); top = sp.offsetTop; }
+      lines[lines.length - 1].push(sp.textContent);
+    });
+    const center = getComputedStyle(el).textAlign === 'center';
+    el.innerHTML = lines.map((l, i) => `<span class="ln" style="--d:${(i * 0.12).toFixed(2)}s${center ? ';margin-inline:auto' : ''}">${esc(l.join(' '))}<span class="wb"></span><span class="wa"></span></span>`).join('');
+  }
+  const wipes = [...document.querySelectorAll('[data-wipe]')];
+  wipes.forEach(splitLines);
+  let rw; addEventListener('resize', () => { clearTimeout(rw); rw = setTimeout(() => { wipes.forEach(splitLines); onScroll(); }, 200); });
+
+  // Compteurs animés.
+  function countUp(el) {
+    const end = +el.dataset.count, t0 = performance.now(), dur = 1400;
+    const step = now => {
+      const k = Math.min(1, (now - t0) / dur);
+      el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  // Apparitions au défilement.
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('on');
+    e.target.querySelectorAll('[data-count]').forEach(countUp);
+    io.unobserve(e.target);
+  }), { threshold: .2 });
+  document.querySelectorAll('.rv, [data-wipe]:not([data-wipe="scroll"]):not([data-wipe="load"])').forEach(el => io.observe(el));
+
+  // ---------- Effets liés au défilement ----------
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const mix = (a, b, t) => a.map((v, i) => Math.round(v + (b[i] - v) * t));
+  const INK = [14, 30, 29], WHITE = [255, 255, 255];
+  const approach = document.querySelector('[data-wipe="scroll"]');
+  const tones = [...document.querySelectorAll('[data-tone]')];
+  const statRow = document.querySelector('.stat-row');
+  const pin = document.getElementById('avantApres');
+  const key = document.querySelector('#floatKey');
+
+  function onScroll() {
+    const vh = innerHeight;
+
+    // Texte d'approche : les bandes se retirent ligne par ligne au fil du défilement.
+    if (approach) {
+      const r = approach.getBoundingClientRect();
+      const p = clamp((vh * .85 - r.top) / (vh * .55 + r.height * .4));
+      const lines = approach.querySelectorAll('.ln'), n = lines.length;
+      lines.forEach((ln, i) => {
+        const local = clamp(p * (n + 1) - i);
+        ln.querySelector('.wa').style.transform = `scaleX(${1 - clamp(local * 1.8)})`;
+        ln.querySelector('.wb').style.transform = `scaleX(${1 - clamp(local * 1.8 - .8)})`;
+      });
+    }
+    if (key) {
+      const r = key.getBoundingClientRect();
+      key.style.transform = `translateY(${(r.top - vh / 2) * -.12}px)`;
+    }
+
+    // Fond qui passe du sombre au clair (ou l'inverse) quand la section entre à l'écran.
+    tones.forEach(sec => {
+      const r = sec.getBoundingClientRect();
+      const t = clamp((vh * .8 - r.top) / (vh * .5));
+      const [from, to] = sec.dataset.tone === 'dark-light' ? [INK, WHITE] : [WHITE, INK];
+      const bg = mix(from, to, t), fg = mix(to, from, t);
+      sec.style.background = `rgb(${bg})`;
+      sec.style.color = `rgb(${fg})`;
+      sec.style.setProperty('--wipe', t > .5 ? (sec.dataset.tone === 'dark-light' ? 'var(--ink)' : 'var(--panel)') : (sec.dataset.tone === 'dark-light' ? 'var(--panel)' : 'var(--ink)'));
+    });
+
+    // Chiffres : les cartes partent en escalier puis s'alignent.
+    if (statRow && innerWidth > 560) {
+      const r = statRow.getBoundingClientRect();
+      const p = clamp((vh - r.top) / (vh * .7));
+      [...statRow.children].forEach((c, i) => { c.style.transform = `translateY(${(1 - p) * i * 70}px)`; });
+    }
+
+    // Avant / Après : section épinglée, les mots s'écartent puis les cartes montent.
+    if (pin) {
+      if (innerWidth > 960) {
+        const r = pin.getBoundingClientRect();
+        const p = clamp(-r.top / (r.height - vh));
+        const spread = clamp(p / .45);
+        pin.style.setProperty('--gap', `${18 + spread * innerWidth * .28}px`);
+        pin.style.setProperty('--fs', `${56 + spread * 70}px`);
+        pin.style.setProperty('--o', (1 - clamp((p - .3) / .3) * .88).toFixed(3));
+        pin.style.setProperty('--ty', `${(1 - clamp((p - .35) / .45)) * vh}px`);
+      } else {
+        ['--gap', '--fs', '--o', '--ty'].forEach(v => pin.style.removeProperty(v));
+      }
+    }
+  }
+  let ticking = false;
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { onScroll(); ticking = false; }); } }, { passive: true });
+  onScroll();
+
+  // ---------- Préchargeur : pavés verts qui se dissolvent, puis dévoilement du titre ----------
+  const loader = document.getElementById('loader');
+  const heroTitle = document.querySelector('[data-wipe="load"]');
+  if (reduced) {
+    loader.remove(); document.body.classList.remove('loading'); heroTitle.classList.add('on');
+  } else {
+    const c = innerWidth > 960 ? 8 : 4, r = innerWidth > 960 ? 6 : 8;
+    loader.style.setProperty('--c', c); loader.style.setProperty('--r', r);
+    loader.insertAdjacentHTML('beforeend', Array.from({ length: c * r }, () => `<i style="--d:${(.15 + Math.random() * .55).toFixed(2)}s"></i>`).join(''));
+    const start = performance.now();
+    const finish = () => setTimeout(() => {
+      loader.classList.add('out');
+      document.body.classList.remove('loading');
+      setTimeout(() => heroTitle.classList.add('on'), 450);
+      setTimeout(() => loader.remove(), 1000);
+    }, Math.max(0, 1300 - (performance.now() - start)));
+    if (document.readyState === 'complete') finish(); else addEventListener('load', finish);
+  }
+
+  // Carrousel du simulateur IA.
+  const slides = document.getElementById('slides');
+  let idx = 0;
+  function go(d) {
+    const n = slides.children.length;
+    idx = (idx + d + n) % n;
+    const w = slides.children[0].getBoundingClientRect().width + 24;
+    slides.style.transform = `translateX(${-idx * w}px)`;
+  }
+  document.getElementById('prev').onclick = () => go(-1);
+  document.getElementById('next').onclick = () => go(1);
+  addEventListener('resize', () => go(0));
+
+  // Menu mobile.
+  const burger = document.querySelector('.burger'), mm = document.getElementById('mobileMenu');
+  burger.onclick = () => { const open = mm.classList.toggle('open'); burger.setAttribute('aria-expanded', open); };
+  mm.querySelectorAll('a').forEach(a => a.onclick = () => { mm.classList.remove('open'); burger.setAttribute('aria-expanded', false); });
+</script>
+</body>
+</html>
