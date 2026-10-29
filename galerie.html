@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Galerie — La Chiave · Centre de langue italienne</title>
+<meta name="description" content="Visas obtenus, séminaires d'orientation et vie du centre La Chiave à Brazzaville et Pointe-Noire." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Geist:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <img class="logo" src="assets/logo.png" alt="Logo Centro Linguistico La Chiave" />
+      <span>La Chiave</span>
+    </a>
+    <nav class="menu upper">
+      <a href="index.html#approche">Le centre</a><span class="dot">·</span>
+      <a href="index.html#preparation">Préparation</a><span class="dot">·</span>
+      <a href="index.html#entretien">Entretien IA</a><span class="dot">·</span>
+      <a href="index.html#etapes">Étapes</a><span class="dot">·</span>
+      <a href="galerie.html" aria-current="page" style="color:var(--mint)">Galerie</a><span class="dot">·</span>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div style="display:flex;gap:8px;align-items:center">
+      <a href="index.html#contact" class="btn-outline">Nous contacter</a>
+      <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#approche">Le centre</a>
+    <a href="index.html#preparation">Préparation</a>
+    <a href="index.html#entretien">Entretien IA</a>
+    <a href="index.html#etapes">Étapes</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="index.html#faq">FAQ</a>
+  </div>
+</header>
+
+<main>
+  <section class="g-hero dark">
+    <div class="emblems" data-emblems aria-hidden="true"></div>
+    <div class="pixels" id="heroPixels" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="badge" style="position:relative"><span class="br">[</span><span class="tx upper" style="color:var(--ink)">Galerie</span><span class="br">]</span></div>
+      <h1 data-wipe="load">La Chiave<br />en images</h1>
+      <p class="rv">Visas obtenus, départs vers l’Italie, séminaires d’orientation et vie du centre : quelques moments partagés avec nos étudiants.</p>
+    </div>
+  </section>
+
+  <section class="g-body">
+    <!-- Monuments d'Italie fixés en arrière-plan de la galerie -->
+    <div class="emblems emblems-fixed" data-emblems aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="filters" role="group" aria-label="Filtrer les photos">
+        <button type="button" data-filter="tout" aria-pressed="true">Tout</button>
+        <button type="button" data-filter="visas" aria-pressed="false">Visas obtenus</button>
+        <button type="button" data-filter="seminaire" aria-pressed="false">Séminaire d’orientation</button>
+        <button type="button" data-filter="centre" aria-pressed="false">Le centre</button>
+      </div>
+      <div class="masonry" id="masonry"></div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="final-box">
+      <div class="emblems emblems-ink" data-emblems aria-hidden="true"></div>
+      <div class="pixels" id="ctaPixels" aria-hidden="true"></div>
+      <h2 data-wipe>Et si la prochaine photo était la vôtre ?</h2>
+      <p class="rv">Évaluez votre niveau, découvrez les prochaines étapes et échangez avec notre centre pour mieux préparer votre parcours vers l’Italie.</p>
+      <div class="cta-row rv">
+        <a href="https://wa.me/242069541740" target="_blank" rel="noopener" class="btn btn-ink"><span>Contacter sur WhatsApp</span><span class="arr">↗</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="dark">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="foot-lbl">{EMAIL}</span>
+        <a class="foot-big" href="mailto:contact@lachiave.it">contact@lachiave.it</a>
+        <span class="foot-lbl">{TÉLÉPHONE}</span>
+        <a class="foot-big foot-tel" href="tel:+242068002729"><small>Brazzaville</small>+242 06 800 27 29</a>
+        <a class="foot-big foot-tel" href="tel:+242061604154"><small>Pointe-Noire</small>+242 06 160 41 54</a>
+        <span class="foot-lbl">{WHATSAPP}</span>
+        <a class="foot-big" href="https://wa.me/242069541740" target="_blank" rel="noopener">+242 06 954 17 40</a>
+      </div>
+      <div>
+        <span class="foot-lbl">{NAVIGATION}</span>
+        <ul><li><a href="index.html#approche">Le centre</a></li><li><a href="index.html#preparation">Préparation</a></li><li><a href="index.html#entretien">Entretien IA</a></li><li><a href="index.html#etapes">Étapes</a></li><li><a href="galerie.html">Galerie</a></li><li><a href="index.html#faq">FAQ</a></li></ul>
+      </div>
+      <div>
+        <span class="foot-lbl">{CENTRE}</span>
+        <ul><li>Brazzaville &amp; Pointe-Noire</li><li>République du Congo</li><li>Lundi – Samedi · 8h – 18h</li><li>Présentiel &amp; en ligne</li></ul>
+      </div>
+      <div>
+        <span class="foot-lbl">{SUIVEZ-NOUS}</span>
+        <ul><li><a href="https://wa.me/242069541740" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:contact@lachiave.it">Email</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 La Chiave. Tous droits réservés.</span>
+      <span>Entraînement pédagogique indépendant · Non affilié officiellement aux services consulaires</span>
+    </div>
+  </div>
+  <div class="giant" aria-hidden="true">La Chiave</div>
+  <div class="pixels foot-pixels" id="footPixels" aria-hidden="true"></div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+  <button class="lb-btn lb-close" aria-label="Fermer">✕</button>
+  <button class="lb-btn lb-prev" aria-label="Photo précédente">←</button>
+  <figure><img alt="" /><figcaption></figcaption></figure>
+  <button class="lb-btn lb-next" aria-label="Photo suivante">→</button>
+</div>
+
+<script src="assets/site.js"></script>
+<script>
+  const { scatter, splitLines } = LaChiave;
+  LaChiave.renderEmblems();
+  LaChiave.initMenu();
+
+  // Photos du centre : [fichier, légende, détail, catégorie].
+  const SEMINAIRE = 'Pointe-Noire · 7 février 2026';
+  const PHOTOS = [
+    ['visa-01.jpg', 'Visa d’études obtenu', 'Brazzaville', 'visas'],
+    ['seminaire-01.jpg', 'Séminaire d’orientation', SEMINAIRE, 'seminaire'],
+    ['visa-04.jpg', 'Visa d’études obtenu', 'Brazzaville', 'visas'],
+    ['directeur-conference.jpg', 'Intervention au séminaire', SEMINAIRE, 'seminaire'],
+    ['equipe.jpg', 'L’équipe La Chiave', 'Le centre', 'centre'],
+    ['visa-02.jpg', 'Visa d’études obtenu', 'Brazzaville', 'visas'],
+    ['depart-aeroport.jpg', 'Départ vers l’Italie', 'Juillet 2024', 'visas'],
+    ['seminaire-02.jpg', 'Séminaire d’orientation', SEMINAIRE, 'seminaire'],
+    ['visa-03.jpg', 'Visa d’études obtenu', 'Brazzaville', 'visas'],
+    ['affiche-etudier-en-italie.jpg', 'Étudier en Italie', 'Affiche du centre', 'centre'],
+    ['visa-05.jpg', 'Visa d’études obtenu', 'Brazzaville', 'visas'],
+    ['directeur-scene.jpg', 'Intervention au séminaire', SEMINAIRE, 'seminaire'],
+    ['visa-06.jpg', 'Visa d’études obtenu', 'Brazzaville', 'visas'],
+    ['seminaire-03.jpg', 'Séminaire d’orientation', SEMINAIRE, 'seminaire'],
+    ['visa-07.jpg', 'Visa d’études obtenu', 'Brazzaville', 'visas'],
+    ['visa-08.jpg', 'Visa d’études obtenu', 'Brazzaville', 'visas'],
+  ];
+  const BG = ['var(--sky)', 'var(--mint)', 'var(--sand)', 'var(--lilac)', 'var(--white)'];
+  const masonry = document.getElementById('masonry');
+  masonry.innerHTML = PHOTOS.map(([f, c, d, cat], i) =>
+    `<figure class="tile-g" data-cat="${cat}" data-i="${i}" tabindex="0" role="button" aria-label="Agrandir : ${c}" style="background:${BG[i % BG.length]}">
+       <div class="im"><img src="assets/galerie/${f}" alt="${c} — ${d}" loading="lazy" /></div>
+       <figcaption><span>${c}</span><small>${d}</small></figcaption>
+     </figure>`).join('');
+  const tiles = [...masonry.children];
+
+  // Filtres par catégorie.
+  document.querySelectorAll('.filters button').forEach(btn => btn.onclick = () => {
+    document.querySelectorAll('.filters button').forEach(b => b.setAttribute('aria-pressed', b === btn));
+    const f = btn.dataset.filter;
+    tiles.forEach(t => {
+      t.hidden = f !== 'tout' && t.dataset.cat !== f;
+      if (!t.hidden) { t.classList.remove('on'); requestAnimationFrame(() => t.classList.add('on')); }
+    });
+  });
+
+  // Visionneuse : clic ou Entrée sur une photo, flèches du clavier, Échap pour fermer.
+  const lb = document.getElementById('lightbox'), lbImg = lb.querySelector('img'), lbCap = lb.querySelector('figcaption');
+  let cur = 0;
+  const visible = () => tiles.filter(t => !t.hidden);
+  function show(i) {
+    cur = i;
+    const [f, c, d] = PHOTOS[i];
+    lbImg.src = `assets/galerie/${f}`; lbImg.alt = `${c} — ${d}`;
+    lbCap.textContent = `${c} · ${d}`;
+    lbImg.style.animation = 'none'; lbImg.offsetWidth; lbImg.style.animation = '';
+  }
+  function step(d) {
+    const v = visible(), k = v.findIndex(t => +t.dataset.i === cur);
+    show(+v[(k + d + v.length) % v.length].dataset.i);
+  }
+  function open(i) { show(i); lb.classList.add('open'); document.body.style.overflow = 'hidden'; lb.querySelector('.lb-close').focus(); }
+  function close() { lb.classList.remove('open'); document.body.style.overflow = ''; tiles[cur].focus(); }
+  tiles.forEach(t => {
+    t.onclick = () => open(+t.dataset.i);
+    t.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(+t.dataset.i); } };
+  });
+  lb.querySelector('.lb-close').onclick = close;
+  lb.querySelector('.lb-prev').onclick = () => step(-1);
+  lb.querySelector('.lb-next').onclick = () => step(1);
+  lb.onclick = e => { if (e.target === lb) close(); };
+  addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
+  });
+
+  // Pavés pixel.
+  function layoutPixels() {
+    const wide = innerWidth > 960;
+    scatter(document.getElementById('heroPixels'), wide ? ['top', 'bottom', 'side', 'side'] : ['top', 'bottom'], wide ? 26 : 12);
+    scatter(document.getElementById('footPixels'), ['bottom'], wide ? 18 : 8);
+    scatter(document.getElementById('ctaPixels'), ['top', 'bottom'], wide ? 26 : 12);
+    document.querySelectorAll('#ctaPixels i').forEach(i => i.style.background = '#0E1E1D');
+  }
+  layoutPixels();
+  LaChiave.animatePixels(['heroPixels', 'footPixels']);
+
+  // Titres dévoilés par bandes ; le titre principal se dévoile au chargement.
+  const wipes = [...document.querySelectorAll('[data-wipe]')];
+  wipes.forEach(splitLines);
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { layoutPixels(); wipes.forEach(splitLines); }, 200); });
+  setTimeout(() => document.querySelector('[data-wipe="load"]').classList.add('on'), 150);
+
+  // Apparitions au défilement (photos en cascade).
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('on');
+    io.unobserve(e.target);
+  }), { threshold: .12 });
+  document.querySelectorAll('.rv, .tile-g, [data-wipe]:not([data-wipe="load"])').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
